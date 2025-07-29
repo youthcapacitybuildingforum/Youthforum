@@ -996,16 +996,206 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
 
-        .download-brochure {
-            text-align: center;
-            margin-top: 40px;
-        }
-        .download-brochure a {
-            color: var(--blue-main);
-            font-weight: 600;
-            font-size: 1.1em;
-        }
+        /* In css/style.css, find the .download-brochure-section styles and replace/update them with this */
 
+/* ============================================== */
+/* --- Download Volunteer Brochure Section (Revised for Mobile) --- */
+/* ============================================== */
+/* In css/style.css, REPLACE your ENTIRE existing .download-brochure-section block with this */
+
+/* ============================================== */
+/* --- Download Volunteer Brochure Section (REVISED for Centering) --- */
+/* ============================================== */
+.download-brochure-section {
+    padding: 60px 0; /* Default padding for desktop */
+    background-color: var(--light-grey-bg); /* Assuming this background */
+}
+
+/* The container for the question and the button */
+.download-brochure {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally centers flex items (text and button) */
+    gap: 20px; /* Space between paragraph and button */
+    padding: 30px; /* Inner padding for the brochure box */
+    border-radius: 10px;
+    background-color: var(--white-text);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    max-width: 600px; /* Limit width for better appearance (adjust as needed) */
+    margin: 0 auto; /* CRUCIAL: Centers the entire .download-brochure block */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.brochure-question {
+    font-size: 1.5em; /* Default font size for desktop */
+    color: var(--black-text);
+    margin-bottom: 0; /* Reset margin as gap handles spacing */
+    font-weight: 500;
+    text-align: center; /* Ensure text is centered within its own space */
+}
+
+.download-brochure-btn {
+    /* Inherits .btn .btn-tertiary styles (assuming you updated HTML to btn-tertiary) */
+    display: inline-flex; /* Keep as inline-flex for icon alignment */
+    align-items: center;
+    justify-content: center; /* Center content within the button */
+    gap: 10px;
+    padding: 15px 40px;
+    font-size: 1.1em;
+    border: 2px solid var(--purple-main);
+    background-color: var(--white-text);
+    color: var(--purple-main);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* margin: 0 auto; REMOVED from here, as the parent flex container handles centering */
+    max-width: fit-content; /* Allow it to shrink to its content size */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    white-space: nowrap; /* Prevent text wrapping on desktop */
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+    overflow: hidden; /* Hide overflowing text */
+}
+
+.download-brochure-btn:hover {
+    background-color: var(--purple-main);
+    color: var(--white-text);
+    border-color: var(--purple-main); /* Ensure border also changes color */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.download-brochure-btn:hover .btn-icon {
+    filter: invert(100%); /* Makes a dark icon white on hover */
+}
+
+.download-brochure-btn .btn-icon {
+    width: 24px;
+    height: 24px;
+    /* If your icon is blue and needs to remain blue, remove filter: invert(100%); from hover state */
+    /* If your icon is dark and needs to be purple, use: filter: invert(30%) sepia(100%) saturate(2000%) hue-rotate(250deg) brightness(80%); */
+}
+
+
+/* --- Responsive Adjustments for Download Brochure Section --- */
+@media (max-width: 992px) {
+    .download-brochure-section {
+        padding: 50px 0;
+    }
+    .download-brochure {
+        padding: 25px;
+        max-width: 500px;
+    }
+    .brochure-question {
+        font-size: 1.3em;
+    }
+    .download-brochure-btn {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+    .download-brochure-btn .btn-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .download-brochure-section {
+        padding: 40px 0;
+    }
+    .download-brochure {
+        padding: 20px;
+        max-width: calc(100% - 40px); /* Adjust max-width for smaller screens */
+    }
+    .brochure-question {
+        font-size: 1.1em;
+    }
+    .download-brochure-btn {
+        /* Make it a block-like element on mobile to take more width */
+        display: flex; /* Keep flex for icon alignment */
+        flex-direction: row; /* Ensure icon and text are side-by-side */
+        justify-content: center; /* Center content within the button */
+        width: calc(100% - 40px); /* Take almost full width of container, respecting padding */
+        max-width: 350px; /* Limit max width for readability on larger mobile screens */
+        padding: 10px 25px;
+        font-size: 0.95em;
+        margin: 0 auto; /* Crucial for centering the block-level button */
+        white-space: normal; /* Allow text to wrap on mobile if needed */
+        text-align: center; /* Ensure text is centered within the button if it wraps */
+    }
+}
+
+@media (max-width: 480px) {
+    .download-brochure {
+        padding: 15px;
+    }
+    .brochure-question {
+        font-size: 1em;
+    }
+    .download-brochure-btn {
+        font-size: 0.9em;
+        padding: 8px 20px;
+        max-width: 280px; /* Further limit max width for very small screens */
+    }
+    .download-brochure-btn .btn-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* --- Responsive Adjustments for Download Brochure Section --- */
+@media (max-width: 992px) {
+    .download-brochure-section {
+        padding: 50px 0;
+    }
+    .brochure-question {
+        font-size: 1.3em;
+        margin-bottom: 25px;
+    }
+    .download-brochure-btn {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+    .download-brochure-btn .btn-icon {
+        width: 20px; /* Corrected icon width */
+        height: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .download-brochure-section {
+        padding: 40px 0;
+    }
+    .brochure-question {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+    }
+    .download-brochure-btn {
+        /* Make it a block element on mobile to take full width and center with auto margins */
+        display: flex; /* Keep flex for icon alignment */
+        flex-direction: row; /* Ensure icon and text are side-by-side */
+        justify-content: center; /* Center content within the button */
+        width: calc(100% - 40px); /* Take almost full width of container, respecting padding */
+        max-width: 350px; /* Limit max width for readability on larger mobile screens */
+        padding: 10px 25px;
+        font-size: 0.95em;
+        margin: 0 auto; /* Crucial for centering the block-level button */
+        white-space: normal; /* Allow text to wrap on mobile if needed */
+        text-align: center; /* Ensure text is centered within the button if it wraps */
+    }
+}
+
+@media (max-width: 480px) {
+    .brochure-question {
+        font-size: 1em;
+    }
+    .download-brochure-btn {
+        font-size: 0.9em;
+        padding: 8px 20px;
+        max-width: 280px; /* Further limit max width for very small screens */
+    }
+    .download-brochure-btn .btn-icon {
+        width: 18px; /* CORRECTED: This was the issue, setting it to a reasonable size */
+        height: 18px;
+    }
+}
         /* --- Blog / Resources Page --- */
         .blog-hero {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x400/3498DB/FFFFFF?text=Blog+Resources') no-repeat center center/cover;
@@ -1615,6 +1805,770 @@
             .contact-details-card p { font-size: 1em; }
             .social-links a { font-size: 1.8em; margin: 0 10px; }
         }
+
+        /* --- Wall of Fame: Featured Projects --- */
+#wall-of-fame {
+    background-color: var(--white-text); /* Or choose another background if preferred for this section */
+    padding: var(--section-padding); /* Using your general section padding */
+}
+
+#wall-of-fame h2 {
+    color: var(--purple-main);
+    font-size: 2.8em; /* Matching your section-title font size */
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+#wall-of-fame h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--green-main);
+    border-radius: 2px;
+}
+
+#wall-of-fame p {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 40px; /* Adjust margin-bottom for intro text */
+    color: var(--medium-grey-text);
+    font-size: 1.1em; /* Make intro text slightly larger */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.project-card {
+    background-color: var(--light-grey-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    color: var(--purple-main); /* Using your --purple-main */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--medium-grey-text);
+    font-size: 0.95em;
+    line-height: 1.5;
+    flex-grow: 1; /* Allows text to take up available space */
+    margin-bottom: 15px; /* Space before the button */
+}
+
+.learn-more-btn-small {
+    background-color: var(--green-main); /* Using your --green-main */
+    color: var(--white-text);
+    padding: 8px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Ensures it acts like a button */
+    align-self: flex-start; /* Aligns button to the left within the flex column */
+}
+
+.learn-more-btn-small:hover {
+    background-color: var(--green-light); /* Using your --green-light */
+}
+
+/* Ensure the main "See All Featured Projects" button uses your existing .btn styles */
+#wall-of-fame .learn-more-btn {
+    margin-top: 50px; /* Space above the button */
+    display: block; /* Make it block to center with text-align */
+    width: fit-content; /* Shrink to content width */
+    margin-left: auto;
+    margin-right: auto;
+    /* Apply existing btn-secondary styles from your CSS for consistency */
+    background-color: var(--green-main);
+    color: var(--white-text);
+    padding: 12px 28px;
+    border-radius: 50px; /* Pill shape */
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#wall-of-fame .learn-more-btn:hover {
+    background-color: var(--green-light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Stack cards on very small screens */
+    }
+
+    .project-card {
+        padding: 15px;
+    }
+
+    .project-card img {
+        height: 180px;
+    }
+
+    #wall-of-fame h2 {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+
+    #wall-of-fame p {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card img {
+        height: 150px;
+    }
+
+    .project-card h3 {
+        font-size: 1.3em;
+    }
+
+    .project-card p {
+        font-size: 0.9em;
+    }
+
+    .learn-more-btn-small {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+
+    #wall-of-fame .learn-more-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+/* --- Impact Stats Grid --- */
+/* In css/style.css, add these new styles for the Impact section */
+
+/* ============================================== */
+/* --- Impact Statistics Section --- */
+/* ============================================== */
+#impact-stats {
+    background-color: var(--white-text); /* Or whatever background you prefer */
+    /* Uses .section-padding and .animate-on-scroll */
+}
+
+#impact-stats .section-title {
+    margin-bottom: 60px;
+}
+
+.impact-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 columns on desktop */
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center; /* Center grid items if they don't fill the row */
+}
+
+.impact-stat-card {
+    background-color: var(--light-grey-bg);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Distribute content vertically */
+    min-height: 220px; /* Ensure consistent card height */
+    box-sizing: border-box;
+}
+
+.impact-stat-card .number {
+    font-size: 3.5em; /* Large numbers */
+    font-weight: 700;
+    color: var(--purple-main); /* Primary color for numbers */
+    margin-bottom: 10px;
+    line-height: 1; /* Prevent extra space above/below number */
+}
+
+.impact-stat-card p {
+    font-size: 1.1em;
+    color: var(--black-text);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: var(--border-color); /* Light grey background for the bar */
+    border-radius: 5px;
+    height: 8px; /* Height of the progress bar */
+    overflow: hidden; /* Ensure inner bar stays within bounds */
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%; /* Starts at 0, animated by JS */
+    background-color: var(--green-main); /* Green fill for progress */
+    border-radius: 5px;
+    transition: width 1s ease-out; /* Smooth animation for width change */
+}
+
+.percentage-text {
+    font-size: 0.9em;
+    color: var(--medium-grey-text);
+    font-weight: 500;
+}
+
+
+/* ============================================== */
+/* --- Responsive Design (Media Queries) for Impact Statistics --- */
+/* ============================================== */
+
+@media (max-width: 992px) {
+    .impact-stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 2 columns on tablet */
+        gap: 25px;
+    }
+    .impact-stat-card {
+        padding: 25px;
+        min-height: 200px;
+    }
+    .impact-stat-card .number {
+        font-size: 3em;
+    }
+    .impact-stat-card p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .impact-stats-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        max-width: 350px; /* Limit width for single column */
+        margin-left: auto;
+        margin-right: auto;
+        gap: 20px;
+    }
+    .impact-stat-card {
+        padding: 20px;
+        min-height: 180px;
+    }
+    .impact-stat-card .number {
+        font-size: 2.8em;
+    }
+    .impact-stat-card p {
+        font-size: 0.95em;
+    }
+    .progress-bar-container {
+        height: 6px;
+    }
+    .percentage-text {
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    .impact-stat-card {
+        padding: 15px;
+        min-height: 160px;
+    }
+    .impact-stat-card .number {
+        font-size: 2.5em;
+    }
+    .impact-stat-card p {
+        font-size: 0.9em;
+    }
+}
+
+/* --- See More Testimonial Card --- */
+.testimonials-slider {
+    /* Ensure the slider allows for the new card to be seen when scrolled */
+    scroll-padding-right: 30px; /* Add padding to make the last card fully visible */
+}
+
+.see-more-card {
+    background-color: var(--purple-main); /* Use your purple for this card */
+    color: var(--white-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    border-top: 5px solid var(--green-main); /* A contrasting color for the top border */
+    flex: 0 0 380px; /* Maintain the same width as other testimonial cards */
+}
+
+.see-more-card .see-more-content {
+    padding: 30px;
+}
+
+.see-more-card h3 {
+    color: var(--white-text);
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.see-more-card p {
+    color: var(--light-grey-bg); /* Lighter text for readability on dark background */
+    margin-bottom: 25px;
+    font-style: normal; /* Override italic from other testimonial cards */
+}
+
+.see-more-card .btn {
+    /* Inherit button styles, but specify colors for this card */
+    background-color: var(--green-main);
+    color: var(--white-text);
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1em;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.see-more-card .btn:hover {
+    background-color: var(--green-light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Responsive adjustments for impact stats */
+@media (max-width: 768px) {
+    .impact-stat-card {
+        padding: 20px;
+        min-height: 180px;
+    }
+    .impact-stat-card .number {
+        font-size: 3em;
+    }
+    .impact-stat-card p {
+        font-size: 1em;
+    }
+    .progress-bar-container {
+        width: 90%;
+    }
+    .percentage-text {
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    .impact-stat-card {
+        padding: 15px;
+        min-height: 160px;
+    }
+    .impact-stat-card .number {
+        font-size: 2.5em;
+    }
+    .impact-stat-card p {
+        font-size: 0.9em;
+    }
+    .progress-bar-container {
+        width: 95%;
+    }
+    .percentage-text {
+        font-size: 0.8em;
+    }
+}
+
+/* In css/style.css, REPLACE your ENTIRE existing .sdg-list and .learn-more-button blocks with this */
+
+/* ============================================== */
+/* --- SDG Section (REVISED for Card Layout) --- */
+/* ============================================== */
+#sdgs {
+    /* Uses .section-padding and .animate-on-scroll */
+    background-color: var(--white-text); /* Ensure background is defined */
+}
+
+#sdgs .section-intro { /* Targeting the intro paragraph */
+    max-width: 800px;
+    margin: 0 auto 60px; /* Space below intro text */
+    font-size: 1.1em;
+    color: var(--medium-grey-text);
+    text-align: center;
+}
+
+.sdg-grid { /* Changed from .sdg-list */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible 3-column layout */
+    gap: 30px; /* Space between SDG cards */
+    margin-top: 50px;
+    justify-content: center; /* Center cards if they don't fill the row */
+}
+
+.sdg-card {
+    background-color: var(--light-grey-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    display: flex; /* Use flexbox for content inside card */
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--green-main); /* Top accent border */
+}
+
+.sdg-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.sdg-card h3 {
+    color: var(--purple-main); /* Use your primary color for headings */
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.sdg-card p {
+    color: var(--medium-grey-text);
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allow paragraph to take available space */
+}
+
+.read-more-sdg-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--green-main); /* Green text */
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin-top: auto; /* Pushes button to the bottom of the card */
+}
+
+.read-more-sdg-btn:hover {
+    color: var(--purple-main); /* Purple on hover */
+    transform: translateX(5px); /* Slight movement on hover */
+}
+
+.read-more-sdg-btn i {
+    font-size: 0.9em; /* Adjust arrow size */
+}
+
+/* Main "Explore All SDGs" Button */
+.sdg-main-button {
+    margin-top: 60px; /* Space above the button */
+    display: block; /* Make it a block to center with margin: auto */
+    width: fit-content; /* Shrink to content width */
+    margin-left: auto;
+    margin-right: auto;
+    /* Inherits .btn .btn-primary .btn-large styles for its appearance */
+}
+
+
+/* ============================================== */
+/* --- Responsive Design (Media Queries) for SDG Section --- */
+/* ============================================== */
+
+@media (max-width: 992px) {
+    #sdgs .section-intro {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+    .sdg-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    .sdg-card {
+        padding: 25px;
+    }
+    .sdg-card h3 {
+        font-size: 1.4em;
+    }
+    .sdg-card p {
+        font-size: 0.95em;
+    }
+    .read-more-sdg-btn {
+        font-size: 0.9em;
+    }
+    .sdg-main-button {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sdg-grid {
+        grid-template-columns: 1fr; /* Stack cards on mobile */
+        gap: 20px;
+    }
+    .sdg-card {
+        padding: 20px;
+    }
+    .sdg-card h3 {
+        font-size: 1.2em;
+    }
+    .sdg-card p {
+        font-size: 0.9em;
+    }
+    .read-more-sdg-btn {
+        font-size: 0.85em;
+    }
+    .sdg-main-button {
+        font-size: 0.95em;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sdg-card {
+        padding: 15px;
+    }
+    .sdg-card h3 {
+        font-size: 1.1em;
+    }
+    .sdg-card p {
+        font-size: 0.85em;
+    }
+    .read-more-sdg-btn {
+        font-size: 0.8em;
+    }
+    .sdg-main-button {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+}
+
+/* In /* In css/style.css, REPLACE your ENTIRE existing .mentors-slider-section block with this */
+
+/* ============================================== */
+/* --- Mentors Static Grid Section (Homepage - REVISED) --- */
+/* ============================================== */
+.mentors-grid-section { /* Renamed from .mentors-slider-section */
+    background-color: var(--light-grey-bg); /* Or var(--white-text) for alternating */
+    padding: var(--section-padding-desktop); /* Ensure consistent padding from variables */
+}
+
+.mentors-grid-section .section-description {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    font-size: 1.1em;
+    color: var(--medium-grey-text);
+    text-align: center;
+}
+
+.mentor-grid-homepage { /* New class for the grid container */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible 3-column layout */
+    gap: 30px; /* Space between mentor cards */
+    justify-content: center; /* Center cards if they don't fill the row */
+    margin: 0 auto; /* Center the grid container itself */
+    max-width: 1000px; /* Limit the max width of the grid for better aesthetics */
+}
+
+/* Re-using existing .mentor-card styles for individual cards */
+.mentor-card {
+    background-color: var(--white-text);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    text-align: center;
+    padding: 25px; /* Ensure padding inside the card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 5px solid var(--green-main); /* Accent border */
+    min-height: 380px; /* Ensure consistent height for cards */
+    box-sizing: border-box; /* Include padding/border in width */
+}
+
+.mentor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.mentor-card .mentor-photo {
+    width: 150px; /* Fixed width for circular photos */
+    height: 150px; /* Fixed height for circular photos */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover; /* Ensures image covers the circle without distortion */
+    border: 4px solid var(--purple-main); /* Border around photo */
+    margin-bottom: 20px;
+    box-shadow: 0 0 0 5px rgba(111, 45, 189, 0.1); /* Subtle outer glow */
+    display: block; /* Ensure image is a block element */
+}
+
+.mentor-card h3 {
+    color: var(--purple-main);
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+.mentor-card .mentor-title {
+    color: var(--green-main);
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.mentor-card .mentor-bio {
+    color: var(--medium-grey-text);
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allows bio to take available space if varying lengths */
+}
+
+.mentor-card .mentor-social {
+    margin-top: auto; /* Pushes social icons to the bottom */
+    display: flex;
+    gap: 15px;
+}
+
+.mentor-card .mentor-social a {
+    color: var(--light-grey-text);
+    font-size: 1.8em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mentor-card .mentor-social a:hover {
+    color: var(--purple-main); /* Change color on hover */
+    transform: scale(1.1);
+}
+
+/* "View All Mentors" Button Centering */
+.view-all-mentors-btn {
+    display: block; /* Make it a block element */
+    margin: 0 auto; /* Center it horizontally */
+    width: fit-content; /* Shrink to content width */
+    margin-top: 40px !important; /* Ensure margin top is applied */
+}
+
+
+/* ============================================== */
+/* --- Responsive Design (Media Queries) for Mentors Static Grid --- */
+/* ============================================== */
+
+@media (max-width: 992px) {
+    .mentors-grid-section .section-description {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+    .mentor-grid-homepage {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 columns on tablet */
+        max-width: 600px; /* Adjust max-width for tablet */
+    }
+    .mentor-card {
+        min-height: 350px; /* Adjust min-height for tablet */
+    }
+    .mentor-card .mentor-photo {
+        width: 120px;
+        height: 120px;
+        border-width: 3px;
+    }
+    .mentor-card h3 {
+        font-size: 1.6em;
+    }
+    .mentor-card .mentor-title {
+        font-size: 1em;
+    }
+    .mentor-card .mentor-bio {
+        font-size: 0.9em;
+    }
+    .mentor-card .mentor-social a {
+        font-size: 1.5em;
+    }
+    .view-all-mentors-btn {
+        margin-top: 30px !important; /* Adjust margin for tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .mentor-grid-homepage {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        max-width: 350px; /* Adjust max-width for mobile */
+    }
+    .mentor-card {
+        min-height: 300px; /* Adjust min-height for mobile */
+    }
+    .mentor-card .mentor-photo {
+        width: 100px;
+        height: 100px;
+        border-width: 2px;
+    }
+    .mentor-card h3 {
+        font-size: 1.4em;
+    }
+    .mentor-card .mentor-title {
+        font-size: 0.9em;
+    }
+    .mentor-card .mentor-bio {
+        font-size: 0.85em;
+    }
+    .mentor-card .mentor-social a {
+        font-size: 1.3em;
+    }
+    .view-all-mentors-btn {
+        margin-top: 20px !important; /* Adjust margin for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .mentor-card {
+        padding: 15px; /* Smaller padding for very small screens */
+        min-height: 280px; /* Adjust min-height for very small screens */
+    }
+    .mentor-card .mentor-photo {
+        width: 80px;
+        height: 80px;
+    }
+    .mentor-card h3 {
+        font-size: 1.2em;
+    }
+    .mentor-card .mentor-title {
+        font-size: 0.8em;
+    }
+    .mentor-card .mentor-bio {
+        font-size: 0.8em;
+    }
+    .mentor-card .mentor-social a {
+        font-size: 1.1em;
+    }
+}
     </style>
 </head>
 <body>
@@ -1622,19 +2576,21 @@
     <header class="main-header">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="https://placehold.co/40x40/6F2DBD/FFFFFF?text=YCBTF" alt="YCBTF Uganda Logo">
-                YCBTF Uganda
+                <img src="https://placehold.co/40x40/6F2DBD/FFFFFF?text=YCBF" alt="YCBF Uganda Logo">
+                YCBF Uganda
             </a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="mentors.html" class="active">Mentors</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="programs.html">Programs</a></li>
                     <li><a href="impact.html">Impact</a></li>
                     <li><a href="join.html">Join Us</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="blog.html">Spotlight</a></li>
                     <li><a href="donate.html">Donate</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="opportunities.html">Opportunities</a></li>
                 </ul>
             </nav>
             <button class="hamburger-menu" aria-label="Toggle navigation">
@@ -1650,9 +2606,9 @@
                 <li><a href="programs.html">Programs</a></li>
                 <li><a href="impact.html">Impact</a></li>
                 <li><a href="join.html">Join Us</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="spotlight.html">Spotlight</a></li>
                 <li><a href="donate.html">Donate</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="opportunities.html">Opportunities</a></li>
                 <li><a href="join.html" class="btn btn-secondary">Join Us</a></li>
                 <li><a href="donate.html" class="btn btn-primary">Donate</a></li>
             </ul>
@@ -1691,59 +2647,93 @@
             </div>
         </section>
 
+
+        
+<section id="wall-of-fame" class="section">
+    <div class="container">
+        <h2>Wall of Fame: Outstanding Projects</h2>
+        <p>Celebrate the outstanding achievements of our youth! Here are some of the most innovative and impactful projects developed by participants in YCBF Uganda programs.</p>
+        <div class="projects-grid">
+            <div class="project-card">
+               <img src="images/fd.jpg" alt="AgriTech Project">
+                <h3>Agri-Smart Hydroponics</h3>
+                <p>A sustainable hydroponics system designed to boost food security in urban areas, developed by the EcoInnovators Club.</p>
+                <a href="projects.html#agritech" class="learn-more-btn-small">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="images/gfgf.jpg" alt="EduApp Project">
+                <h3>EduConnect Mobile App</h3>
+                <p>An educational mobile application providing free access to study materials and virtual tutoring for secondary students.</p>
+                <a href="projects.html#educonnect" class="learn-more-btn-small">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="images/thg.jpg" alt="Clean Water Project">
+                <h3>Community Water Filter Initiative</h3>
+                <p>A low-cost, effective water filtration system implemented in rural communities, significantly improving access to clean water.</p>
+                <a href="projects.html#waterfilter" class="learn-more-btn-small">View Project</a>
+            </div>
+        </div>
+        <a href="wall-of-fame.html" class="learn-more-btn">See All Projects</a>
+    </div>
+</section>
+
         <section class="testimonials-section section-padding animate-on-scroll">
-            <div class="container">
-                <h2 class="section-title">What Our Community Says</h2>
-                <div class="testimonials-slider">
-                    <div class="testimonial-card">
-                        <p>"YCBTF Uganda changed my life! The digital skills training opened doors to opportunities I never thought possible."</p>
-                        <div class="author-info">
-                            <img src="https://placehold.co/60x60/333333/6F2DBD?text=YO" alt="Youth Beneficiary" class="author-avatar">
-                            <div class="author-details">
-                                <h4>Mwanje Frank</h4>
-                                <p>Youth Beneficiary</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"Their health awareness campaigns are vital for our students. They deliver crucial information in an engaging way."</p>
-                        <div class="author-info">
-                            <img src="https://placehold.co/60x60/333333/27AE60?text=TM" alt="Teacher" class="author-avatar">
-                            <div class="author-details">
-                                <h4>Mr. David Katende</h4>
-                                <p>Head Teacher, Kampala High</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"My child's confidence has soared since joining their peer mentoring program. Thank you, YCBTF!"</p>
-                        <div class="author-info">
-                            <img src="https://placehold.co/60x60/333333/3498DB?text=PA" alt="Parent" class="author-avatar">
-                            <div class="author-details">
-                                <h4>Ms. Aisha Nakato</h4>
-                                <p>Parent</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"The entrepreneurship workshops provided practical steps for me to start my small business."</p>
-                        <div class="author-info">
-                            <img src="https://placehold.co/60x60/333333/6F2DBD?text=YU" alt="Youth Beneficiary" class="author-avatar">
-                            <div class="author-details">
-                                <h4>Moses Mugisha</h4>
-                                <p>Youth Beneficiary</p>
-                            </div>
-                        </div>
+    <div class="container">
+        <h2 class="section-title">Our Best Performing Clubs</h2>
+        <div class="testimonials-slider">
+            <div class="testimonial-card">
+                <p>"The XYZ Club has consistently shown exceptional leadership and community engagement, inspiring other youth."</p>
+                <div class="author-info">
+                    <img src="images/rtrt.jpg" alt="Club Logo" class="author-avatar">
+                    <div class="author-details">
+                        <h4>XYZ Youth Club</h4>
+                        <p>Kampala Region</p>
                     </div>
                 </div>
             </div>
-        </section>
+            <div class="testimonial-card">
+                <p>"The innovation projects from the ABC Tech Club are truly groundbreaking, demonstrating immense creativity."</p>
+                <div class="author-info">
+                    <img src="images/ff.jpg" alt="Club Logo" class="author-avatar">
+                    <div class="author-details">
+                        <h4>ABC Tech Club</h4>
+                        <p>Gulu Region</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>"The Green Warriors Club has led impactful environmental initiatives, making a real difference in their local area."</p>
+                <div class="author-info">
+                    <img src="images/pink.jpg" alt="Club Logo" class="author-avatar">
+                    <div class="author-details">
+                        <h4>Green Warriors Club</h4>
+                        <p>Jinja Region</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>"The Future Leaders Club excels in peer mentorship, fostering a supportive and empowering environment for all members."</p>
+                <div class="author-info">
+                    <img src="images/df.jpg" alt="Club Logo" class="author-avatar">
+                    <div class="author-details">
+                        <h4>Future Leaders Club</h4>
+                        <p>Mbarara Region</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="clubs.html" class="learn-more-btn">See All Clubs</a>
+        </div>
+    </div>
+</section>
+
 
         <section class="video-section section-padding animate-on-scroll">
             <div class="container">
                 <h2 class="section-title">See Our Work in Action</h2>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=abcdefg" title="YCBTF Uganda Fieldwork Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=abcdefg" title="YCBF Uganda Fieldwork Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
@@ -1753,11 +2743,11 @@
                 <h2 class="section-title">Latest Insights & Stories</h2>
                 <div class="blog-posts-grid">
                     <div class="blog-post-card">
-                        <img src="https://placehold.co/400x200/6F2DBD/FFFFFF?text=Youth+Leadership" alt="Blog Post Image 1">
+                        <img src="images/dd.jpg" alt="Blog Post Image 1">
                         <div class="blog-post-info">
                             <h3>Developing Tomorrow's Leaders</h3>
                             <div class="blog-post-meta">
-                                <span><i class="fas fa-user"></i> By Team YCBTF</span>
+                                <span><i class="fas fa-user"></i> By Team YCBF</span>
                                 <span><i class="fas fa-calendar-alt"></i> July 15, 2025</span>
                             </div>
                             <p>Discover how our leadership workshops are shaping confident and capable young leaders across Uganda.</p>
@@ -1765,7 +2755,7 @@
                         </div>
                     </div>
                     <div class="blog-post-card">
-                        <img src="https://placehold.co/400x200/27AE60/FFFFFF?text=Mental+Health+Uganda" alt="Blog Post Image 2">
+                        <img src="images/rtr.jpg" alt="Blog Post Image 2">
                         <div class="blog-post-info">
                             <h3>Breaking the Stigma: Youth Mental Health</h3>
                             <div class="blog-post-meta">
@@ -1777,7 +2767,7 @@
                         </div>
                     </div>
                     <div class="blog-post-card">
-                        <img src="https://placehold.co/400x200/3498DB/FFFFFF?text=Digital+Skills" alt="Blog Post Image 3">
+                        <img src="images/frd.jpg" alt="Blog Post Image 3">
                         <div class="blog-post-info">
                             <h3>Digital Skills: A Gateway to Opportunity</h3>
                             <div class="blog-post-meta">
@@ -1795,7 +2785,7 @@
 
         <section id="about-us-page" class="about-us-hero hidden-page">
             <div class="container">
-                <h1>About YCBTF Uganda</h1>
+                <h1>About YCBF Uganda</h1>
             </div>
         </section>
 
@@ -1804,10 +2794,10 @@
                 <div class="about-intro animate-on-scroll">
                     <div>
                         <h2 class="section-title">Who We Are</h2>
-                        <p>The Youth Capacity Trainers Forum – Uganda (YCBTF Uganda) is a non-profit, community-based initiative founded in 2018 with a singular vision: to empower the young people of Uganda. We believe that an informed, skilled, and healthy youth population is the cornerstone of a thriving nation.</p>
+                        <p>The Youth Capacity Forum – Uganda (YCBF Uganda) is a non-profit, community-based initiative founded in 2023 with a singular vision: to empower the young people of Uganda. We believe that an informed, skilled, and healthy youth population is the cornerstone of a thriving nation.</p>
                         <p>Our journey began with a small team of dedicated volunteers who recognized the critical need for comprehensive youth development beyond traditional schooling. From humble beginnings in local community halls, we've grown into a recognized force for positive change, reaching thousands of youth across various districts.</p>
                     </div>
-                    <img src="https://placehold.co/600x400/6F2DBD/FFFFFF?text=YCBTF+Founding+Story" alt="YCBTF Uganda Founding Story">
+                    <img src="images/programs_intro.jpg" alt="YCBF Uganda Founding Story">
                 </div>
 
                 <div class="vision-mission-values animate-on-scroll">
@@ -1835,24 +2825,24 @@
                     <h2 class="section-title">Meet Our Dedicated Team</h2>
                     <div class="team-grid">
                         <div class="team-member-card">
-                            <img src="https://placehold.co/150x150/6F2DBD/FFFFFF?text=CEO" alt="Team Member 1">
-                            <h4>Grace Alupo</h4>
+                            <img src="images/program_school_clubs.jpg" alt="Team Member 1">
+                            <h4>Mwanje Frank</h4>
                             <p>Founder & CEO</p>
                         </div>
                         <div class="team-member-card">
-                            <img src="https://placehold.co/150x150/27AE60/FFFFFF?text=Prog+Dir" alt="Team Member 2">
-                            <h4>Alex Mugerwa</h4>
+                            <img src="images/hgfhg.jpg" alt="Team Member 2">
+                            <h4>Dr. Alex Mugerwa</h4>
                             <p>Programs Director</p>
                         </div>
                         <div class="team-member-card">
-                            <img src="https://placehold.co/150x150/3498DB/FFFFFF?text=Comm+Lead" alt="Team Member 3">
-                            <h4>Sarah Nakiyingi</h4>
+                            <img src="images/thg.jpg" alt="Team Member 3">
+                            <h4>Usaama Kirinya</h4>
                             <p>Community Outreach Lead</p>
                         </div>
                         <div class="team-member-card">
-                            <img src="https://placehold.co/150x150/6F2DBD/FFFFFF?text=Health+Co" alt="Team Member 4">
-                            <h4>Dr. Paul Omara</h4>
-                            <p>Health Programs Coordinator</p>
+                            <img src="images/df.jpg" alt="Team Member 4">
+                            <h4>Asiimwe Ronald</h4>
+                            <p>Admin Coordinator</p>
                         </div>
                     </div>
                 </div>
@@ -1868,26 +2858,26 @@
         <section class="program-section-wrapper section-padding hidden-page">
             <div class="container">
                 <div class="program-category program-capacity animate-on-scroll">
-                    <h3><span class="icon"><i class="fas fa-graduation-cap"></i></span> Capacity Building Workshops</h3>
+                    <h3><span class="icon"><i class="fas fa-graduation-cap"></i></span> Capacity Building    <br>   Workshops</h3>
                     <div class="program-content">
                         <p>We empower youth with practical skills and knowledge crucial for personal growth and economic empowerment.</p>
                         <div class="program-grid">
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/6F2DBD/FFFFFF?text=Leadership" alt="Leadership Workshop">
+                                <img src="images/ff.jpg" alt="Leadership Workshop">
                                 <div class="info">
                                     <h4>Leadership & Life Skills</h4>
                                     <p>Nurturing young leaders to drive positive change in their communities.</p>
                                 </div>
                             </div>
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/6F2DBD/FFFFFF?text=Entrepreneurship" alt="Entrepreneurship Workshop">
+                                <img src="images/rtr.jpg" alt="Entrepreneurship Workshop">
                                 <div class="info">
                                     <h4>Entrepreneurship & Innovation</h4>
                                     <p>Equipping youth with the mindset and tools to start and manage small businesses.</p>
                                 </div>
                             </div>
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/6F2DBD/FFFFFF?text=Digital+Skills" alt="Digital Skills Training">
+                                <img src="images/rtrt.jpg" alt="Digital Skills Training">
                                 <div class="info">
                                     <h4>Digital Literacy & IT Skills</h4>
                                     <p>Bridging the digital divide by teaching essential computer and online skills.</p>
@@ -1903,21 +2893,21 @@
                         <p>Promoting health literacy and well-being among youth through engaging and informative campaigns.</p>
                         <div class="program-grid">
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/27AE60/FFFFFF?text=HIV+AIDS" alt="HIV/AIDS Awareness">
+                                <img src="images/fd.jpg" alt="HIV/AIDS Awareness">
                                 <div class="info">
                                     <h4>HIV/AIDS Prevention</h4>
                                     <p>Educating youth on prevention, testing, and dispelling myths about HIV/AIDS.</p>
                                 </div>
                             </div>
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/27AE60/FFFFFF?text=SRHR" alt="SRHR Awareness">
+                                <img src="images/fd.jpg" alt="SRHR Awareness">
                                 <div class="info">
                                     <h4>Sexual & Reproductive Health</h4>
                                     <p>Providing accurate information on SRHR to enable informed decisions.</p>
                                 </div>
                             </div>
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/27AE60/FFFFFF?text=Hygiene" alt="Hygiene Promotion">
+                                <img src="images/fd.jpg" alt="Hygiene Promotion">
                                 <div class="info">
                                     <h4>Hygiene & Sanitation</h4>
                                     <p>Promoting good hygiene practices for healthier schools and communities.</p>
@@ -1933,21 +2923,21 @@
                         <p>Offering a safe space and expert guidance for youth to navigate life's challenges and achieve their full potential.</p>
                         <div class="program-grid">
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/3498DB/FFFFFF?text=Peer+Mentoring" alt="Peer Mentoring">
+                                <img src="images/thg.jpg" alt="Peer Mentoring">
                                 <div class="info">
                                     <h4>Peer Mentoring Networks</h4>
                                     <p>Connecting youth with positive role models for support and inspiration.</p>
                                 </div>
                             </div>
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/3498DB/FFFFFF?text=Emotional+Support" alt="Emotional Support">
+                                <img src="images/rtr.jpg" alt="Emotional Support">
                                 <div class="info">
                                     <h4>Emotional Support Sessions</h4>
                                     <p>Facilitating group and individual sessions for mental and emotional well-being.</p>
                                 </div>
                             </div>
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/3498DB/FFFFFF?text=Career+Guidance" alt="Career Guidance">
+                                <img src="images/fd.jpg" alt="Career Guidance">
                                 <div class="info">
                                     <h4>Career & Academic Guidance</h4>
                                     <p>Helping youth explore career paths and make informed academic choices.</p>
@@ -1963,21 +2953,21 @@
                         <p>Fostering creativity, critical thinking, and life skills through vibrant clubs in secondary schools.</p>
                         <div class="program-grid">
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/8E44AD/FFFFFF?text=Debate+Club" alt="Debate Club">
+                                <img src="images/pink.jpg" alt="Debate Club">
                                 <div class="info">
                                     <h4>Debate & Public Speaking</h4>
                                     <p>Developing confidence and articulate communication skills.</p>
                                 </div>
                             </div>
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/8E44AD/FFFFFF?text=Creativity+Club" alt="Creativity Club">
+                                <img src="images/hgfhg.jpg" alt="Creativity Club">
                                 <div class="info">
                                     <h4>Creative Arts & Innovation</h4>
                                     <p>Encouraging self-expression and problem-solving through art, drama, and tech.</p>
                                 </div>
                             </div>
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/8E44AD/FFFFFF?text=Life+Skills+Club" alt="Life Skills Club">
+                                <img src="images/fd.jpg" alt="Life Skills Club">
                                 <div class="info">
                                     <h4>Life Skills & Mentorship Clubs</h4>
                                     <p>Providing a platform for mentorship and practical life lessons.</p>
@@ -1986,10 +2976,10 @@
                         </div>
                         <h4 style="color: var(--white-text); margin-top: 40px; font-size: 1.6em; text-shadow: 0 2px 5px rgba(0,0,0,0.2);">Our Partner Schools:</h4>
                         <div class="school-logos">
-                            <img src="https://placehold.co/120x80/EEEEEE/333333?text=School+A+Logo" alt="School A Logo">
-                            <img src="https://placehold.co/120x80/EEEEEE/333333?text=School+B+Logo" alt="School B Logo">
-                            <img src="https://placehold.co/120x80/EEEEEE/333333?text=School+C+Logo" alt="School C Logo">
-                            <img src="https://placehold.co/120x80/EEEEEE/333333?text=School+D+Logo" alt="School D Logo">
+                            <img src="images/hgfhg.jpg" alt="School A Logo">
+                            <img src="images/thg.jpg" alt="School B Logo">
+                            <img src="images/rtrt.jpg" alt="School C Logo">
+                            <img src="images/ff.jpg" alt="School D Logo">
                         </div>
                     </div>
                 </div>
@@ -2000,21 +2990,21 @@
                         <p>Fostering positive change and community cohesion through impactful outreach events.</p>
                         <div class="program-grid">
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/2ECC71/FFFFFF?text=Clean-up+Drive" alt="Clean-up Drive">
+                                <img src="images/programs_intro.jpg" alt="Clean-up Drive">
                                 <div class="info">
                                     <h4>Community Clean-up Drives</h4>
                                     <p>Promoting environmental responsibility and community pride.</p>
                                 </div>
                             </div>
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/2ECC71/FFFFFF?text=Football+Peace" alt="Football for Peace">
+                                <img src="images/rtr.jpg" alt="Football for Peace">
                                 <div class="info">
                                     <h4>Football for Peace Tournaments</h4>
                                     <p>Using sports as a tool for unity, leadership, and conflict resolution.</p>
                                 </div>
                             </div>
                             <div class="program-grid-item">
-                                <img src="https://placehold.co/400x200/2ECC71/FFFFFF?text=Village+Dialogue" alt="Village Dialogue">
+                                <img src="images/dd.jpg" alt="Village Dialogue">
                                 <div class="info">
                                     <h4>Village Dialogues & Sensitization</h4>
                                     <p>Engaging communities in discussions on critical social issues affecting youth.</p>
@@ -2026,87 +3016,202 @@
             </div>
         </section>
 
-        <section id="impact-page" class="impact-hero hidden-page">
-            <div class="container">
-                <h1>Our Impact</h1>
-            </div>
-        </section>
-
-        <section class="section-padding animate-on-scroll">
+        <section class="section-padding animate-on-scroll" id="impact-stats">
             <div class="container">
                 <h2 class="section-title">Making a Real Difference</h2>
                 <div class="impact-stats-grid">
                     <div class="impact-stat-card">
-                        <span class="number count-up" data-target="150">0</span>
+                        <span class="number count-up" data-target="150" data-total="300">0</span>
                         <p>Schools Reached</p>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" data-percentage="50"></div>
+                        </div>
+                        <span class="percentage-text" data-percentage="50">0% of Target</span>
                     </div>
                     <div class="impact-stat-card">
-                        <span class="number count-up" data-target="25000">0</span>
+                        <span class="number count-up" data-target="25000" data-total="50000">0</span>
                         <p>Youth Trained</p>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" data-percentage="50"></div>
+                        </div>
+                        <span class="percentage-text" data-percentage="50">0% of Target</span>
                     </div>
                     <div class="impact-stat-card">
-                        <span class="number count-up" data-target="300">0</span>
+                        <span class="number count-up" data-target="300" data-total="400">0</span> <!-- Changed initial value to 0 for count-up -->
                         <p>Community Events</p>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" data-percentage="75"></div>
+                        </div>
+                        <span class="percentage-text" data-percentage="75">0% of Target</span>
                     </div>
                     <div class="impact-stat-card">
-                        <span class="number count-up" data-target="500">0</span>
-                        <p>Volunteer Hours</p>
-                    </div>
-                </div>
-
-                <div class="testimonials-section section-padding" style="background-color: transparent;">
-                    <h2 class="section-title">Voices of Change</h2>
-                    <div class="testimonials-slider">
-                        <div class="testimonial-card">
-                            <p>"Before YCBTF, I struggled with public speaking. Now, I lead my school's debate club with confidence!"</p>
-                            <div class="author-info">
-                                <img src="https://placehold.co/60x60/333333/6F2DBD?text=BE" alt="Beneficiary Avatar" class="author-avatar">
-                                <div class="author-details">
-                                    <h4>Ben E.</h4>
-                                    <p>Youth Beneficiary, Kampala</p>
-                                </div>
-                            </div>
+                        <span class="number count-up" data-target="500" data-total="1000">0</span>
+                        <p>Projects Initiated</p>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" data-percentage="50"></div>
                         </div>
-                        <div class="testimonial-card">
-                            <p>"The health campaigns taught me so much. I now advocate for proper hygiene in my village."</p>
-                            <div class="author-info">
-                                <img src="https://placehold.co/60x60/333333/27AE60?text=FI" alt="Beneficiary Avatar" class="author-avatar">
-                                <div class="author-details">
-                                    <h4>Fiona I.</h4>
-                                    <p>Community Youth</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-card">
-                            <p>"YCBTF's holistic approach ensures that youth are not just educated, but truly empowered for life."</p>
-                            <div class="author-info">
-                                <img src="https://placehold.co/60x60/333333/3498DB?text=JM" alt="Beneficiary Avatar" class="author-avatar">
-                                <div class="author-details">
-                                    <h4>Justice M.</h4>
-                                    <p>Community Leader</p>
-                                </div>
-                            </div>
-                        </div>
+                        <span class="percentage-text" data-percentage="50">0% of Target</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="impact-map-section section-padding animate-on-scroll">
+        <div class="testimonials-section section-padding" style="background-color: transparent;">
+            <h2 class="section-title">Voices of Change</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <p>"Before YCBF, I struggled with public speaking. Now, I lead my school's debate club with confidence!"</p>
+                    <div class="author-info">
+                        <img src="images/program_school_clubs.jpg" alt="Beneficiary Avatar" class="author-avatar">
+                        <div class="author-details">
+                            <h4>Ben E.</h4>
+                            <p>Youth Beneficiary, Kampala</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The health campaigns taught me so much. I now advocate for proper hygiene in my village."</p>
+                    <div class="author-info">
+                        <img src="images/rtr.jpg" alt="Beneficiary Avatar" class="author-avatar">
+                        <div class="author-details">
+                            <h4>Fiona I.</h4>
+                            <p>Community Youth</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"YCBF's holistic approach ensures that youth are not just educated, but truly empowered for life."</p>
+                    <div class="author-info">
+                        <img src="images/pink.jpg" alt="Beneficiary Avatar" class="author-avatar">
+                        <div class="author-details">
+                            <h4>Justice M.</h4>
+                            <p>Community Leader</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card see-more-card">
+                    <div class="see-more-content">
+                        <h3>Hear More Inspiring Stories!</h3>
+                        <p>Discover how YCBF Uganda transforms lives across the nation.</p>
+                        <a href="mentors.html" class="btn btn-secondary">See All Voices</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section-padding animate-on-scroll" id="sdgs">
+    <div class="container">
+        <h2 class="section-title">Our Commitment to the UN SDGs</h2>
+        <p class="section-description text-center">
+            YCBTF Uganda actively aligns its programs with the United Nations Sustainable Development Goals (SDGs), empowering youth to take part in shaping a better world.
+        </p>
+
+        <div class="sdg-grid"> <!-- Changed class from sdg-list to sdg-grid -->
+            <!-- SDG Card 1 -->
+            <div class="sdg-card">
+                <h3>🎯 Goal 3: Good Health & Well-being</h3>
+                <p>Our health awareness programs promote SRHR education, mental health, and hygiene practices among youth.</p>
+                <a href="sdg-detail-health.html" class="read-more-sdg-btn">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- SDG Card 2 -->
+            <div class="sdg-card">
+                <h3>📚 Goal 4: Quality Education</h3>
+                <p>Through digital literacy and leadership workshops, we promote inclusive, lifelong learning opportunities for all.</p>
+                <a href="sdg-detail-education.html" class="read-more-sdg-btn">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- SDG Card 3 -->
+            <div class="sdg-card">
+                <h3>💼 Goal 8: Decent Work & Economic Growth</h3>
+                <p>Entrepreneurship and innovation initiatives equip youth with business skills and job-readiness.</p>
+                <a href="sdg-detail-work.html" class="read-more-sdg-btn">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- SDG Card 4 -->
+            <div class="sdg-card">
+                <h3>🌍 Goal 13: Climate Action</h3>
+                <p>Our clean-up drives and green projects inspire environmental awareness and action in communities.</p>
+                <a href="sdg-detail-climate.html" class="read-more-sdg-btn">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- SDG Card 5 -->
+            <div class="sdg-card">
+                <h3>🤝 Goal 17: Partnerships for the Goals</h3>
+                <p>We collaborate with schools, churches, and NGOs to amplify our reach and share knowledge and resources.</p>
+                <a href="sdg-detail-partnerships.html" class="read-more-sdg-btn">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <a href="sdgs.html" class="btn btn-primary btn-large sdg-main-button">Explore All 17 SDGs</a>
+    </div>
+</section>
+
+<!-- Inspiring Mentors Section (Static Grid) -->
+        <section class="section-padding mentors-grid-section">
             <div class="container">
-                <h2 class="section-title">Where We Work in Uganda</h2>
-                <div class="impact-map-embed">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.851944686443!2d32.57398327932067!3d0.3162382590217985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb0f19c4d9a5%3A0x1c4a0e4c6b6d2e6e!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1701388800000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <h2 class="section-title">Meet Our Inspiring Mentors</h2>
+                <p class="section-description text-center">Our dedicated mentors guide youth towards success with wisdom and experience.</p>
+
+                <div class="mentor-grid-homepage">
+                    <!-- Mentor Card 1 -->
+                    <div class="mentor-card">
+                        <img src="images/ff.jpg" alt="Mentor Jane Doe" class="mentor-photo">
+                        <h3>Jane Doe</h3>
+                        <p class="mentor-title">Career Development Specialist</p>
+                        <p class="mentor-bio">Jane brings over 15 years of experience in human resources and career coaching.</p>
+                        <div class="mentor-social">
+                            <a href="#" aria-label="Connect with Jane Doe on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="mailto:jane.doe@example.com" aria-label="Email Jane Doe"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Mentor Card 2 -->
+                    <div class="mentor-card">
+                        <img src="images/hgfhg.jpg" alt="Mentor John Smith" class="mentor-photo">
+                        <h3>John Smith</h3>
+                        <p class="mentor-title">Entrepreneurship Coach</p>
+                        <p class="mentor-bio">A successful tech entrepreneur, John guides young innovators through business planning.</p>
+                        <div class="mentor-social">
+                            <a href="#" aria-label="Connect with John Smith on Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="mailto:john.smith@example.com" aria-label="Email John Smith"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Mentor Card 3 -->
+                    <div class="mentor-card">
+                        <img src="images/gfgf.jpg" alt="Mentor Mary Jones" class="mentor-photo">
+                        <h3>Mary Jones</h3>
+                        <p class="mentor-title">Digital Literacy Trainer</p>
+                        <p class="mentor-bio">Mary specializes in making complex digital concepts accessible and empowering youth.</p>
+                        <div class="mentor-social">
+                            <a href="#" aria-label="Connect with Mary Jones on Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="mailto:mary.jones@example.com" aria-label="Email Mary Jones"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- You can add more mentor cards here, and they will wrap to the next row -->
+                    <!-- For example, if you add a 4th card, it will appear below the first card on desktop -->
+
+                </div>
+                <div class="text-center" style="margin-top: 40px;">
+                    <a href="mentors.html" class="btn btn-primary view-all-mentors-btn">View All Mentors</a>
                 </div>
             </div>
         </section>
+        
+        
 
         <section class="photo-albums-section section-padding animate-on-scroll">
             <div class="container">
                 <h2 class="section-title">Photo Albums from Our Outreach</h2>
                 <div class="photo-album-grid">
                     <div class="photo-album-card">
-                        <img src="https://placehold.co/400x220/6F2DBD/FFFFFF?text=Album+1" alt="Album Cover 1">
+                        <img src="images/thg.jpg" alt="Album Cover 1">
                         <div class="info">
                             <h4>Digital Skills Training 2024</h4>
                             <p>A collection of photos from our recent digital literacy workshops.</p>
@@ -2114,7 +3219,7 @@
                         </div>
                     </div>
                     <div class="photo-album-card">
-                        <img src="https://placehold.co/400x220/27AE60/FFFFFF?text=Album+2" alt="Album Cover 2">
+                        <img src="images/fg.jpg" alt="Album Cover 2">
                         <div class="info">
                             <h4>Health Fair in Wakiso District</h4>
                             <p>Moments from our impactful health awareness campaign in Wakiso.</p>
@@ -2122,7 +3227,7 @@
                         </div>
                     </div>
                     <div class="photo-album-card">
-                        <img src="https://placehold.co/400x220/3498DB/FFFFFF?text=Album+3" alt="Album Cover 3">
+                        <img src="images/ff.jpg" alt="Album Cover 3">
                         <div class="info">
                             <h4>Annual Youth Leadership Summit</h4>
                             <p>Highlights from our empowering annual summit for aspiring young leaders.</p>
@@ -2139,72 +3244,17 @@
             </div>
         </section>
 
-        <section class="join-form-section section-padding hidden-page">
-            <div class="container">
-                <h2 class="section-title">Become a Part of YCBTF Uganda</h2>
-                <div class="join-intro">
-                    <p>Are you passionate about empowering young people? Do you have skills, time, or expertise to share? Join our dedicated team of volunteers, mentors, and trainers and help us shape the future of Uganda's youth!</p>
-                    <p>Your contribution, big or small, can make a profound difference in the lives of many.</p>
-                </div>
-
-                <div class="volunteer-form-container animate-on-scroll">
-                    <h3>Volunteer Application Form</h3>
-                    <form action="#" method="POST">
-                        <label for="volunteer-name">Full Name:</label>
-                        <input type="text" id="volunteer-name" name="full_name" placeholder="Your Full Name" required>
-
-                        <label for="volunteer-age">Age:</label>
-                        <input type="number" id="volunteer-age" name="age" min="18" max="99" placeholder="Your Age" required>
-
-                        <label for="volunteer-email">Email:</label>
-                        <input type="email" id="volunteer-email" name="email" placeholder="Your Email Address" required>
-
-                        <label for="volunteer-phone">Phone Number:</label>
-                        <input type="tel" id="volunteer-phone" name="phone" placeholder="e.g., +2567XXXXXXXX" pattern="^\+256[0-9]{9}$" title="Ugandan phone number format +2567xxxxxxxxx" required>
-
-                        <label for="volunteer-skills">Skills / Expertise:</label>
-                        <textarea id="volunteer-skills" name="skills" rows="4" placeholder="e.g., Digital Marketing, Teaching, Counseling, Event Management" required></textarea>
-
-                        <label for="volunteer-why">Why do you want to join YCBTF Uganda?</label>
-                        <textarea id="volunteer-why" name="why_join" rows="4" placeholder="Tell us about your motivation..." required></textarea>
-
-                        <label for="volunteer-availability">Availability:</label>
-                        <select id="volunteer-availability" name="availability" required>
-                            <option value="">Select your availability</option>
-                            <option value="weekly">Weekly</option>
-                            <option value="bi-weekly">Bi-weekly</option>
-                            <option value="monthly">Monthly</option>
-                            <option value="events-only">Specific Events Only</option>
-                            <option value="flexible">Flexible</option>
-                        </select>
-
-                        <button type="submit">Submit Application</button>
-                    </form>
-                </div>
-
-                <div class="download-brochure animate-on-scroll">
-                    <p>Want to learn more about volunteering with us?</p>
-                    <a href="YCBTF_Volunteer_Brochure.pdf" target="_blank" class="btn btn-tertiary">Download Volunteer Brochure <i class="fas fa-download"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <section id="blog-page" class="blog-hero hidden-page">
-            <div class="container">
-                <h1>Blog & Resources</h1>
-            </div>
-        </section>
-
+        
         <section class="section-padding hidden-page">
             <div class="container">
                 <h2 class="section-title">Latest Articles & Stories</h2>
                 <div class="blog-posts-grid">
                     <div class="blog-post-card" id="post1">
-                        <img src="https://placehold.co/400x200/6F2DBD/FFFFFF?text=Youth+Leadership+Post" alt="Blog Post Image">
+                        <img src="images/dd.jpg" alt="Blog Post Image">
                         <div class="blog-post-info">
                             <h3>Developing Tomorrow's Leaders</h3>
                             <div class="blog-post-meta">
-                                <span><i class="fas fa-user"></i> By Team YCBTF</span>
+                                <span><i class="fas fa-user"></i> By Team YCBF</span>
                                 <span><i class="fas fa-calendar-alt"></i> July 15, 2025</span>
                                 <span><i class="fas fa-tag"></i> Leadership, Capacity Building</span>
                             </div>
@@ -2213,7 +3263,7 @@
                         </div>
                     </div>
                     <div class="blog-post-card" id="post2">
-                        <img src="https://placehold.co/400x200/27AE60/FFFFFF?text=Mental+Health+Post" alt="Blog Post Image">
+                        <img src="images/frd.jpg" alt="Blog Post Image">
                         <div class="blog-post-info">
                             <h3>Breaking the Stigma: Youth Mental Health</h3>
                             <div class="blog-post-meta">
@@ -2221,12 +3271,12 @@
                                 <span><i class="fas fa-calendar-alt"></i> July 10, 2025</span>
                                 <span><i class="fas fa-tag"></i> Health, Mental Well-being</span>
                             </div>
-                            <p>Mental health is a topic often overlooked, especially among youth. At YCBTF, we provide safe spaces for young people to discuss their challenges and access support...</p>
+                            <p>Mental health is a topic often overlooked, especially among youth. At YCBF, we provide safe spaces for young people to discuss their challenges and access support...</p>
                             <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="blog-post-card" id="post3">
-                        <img src="https://placehold.co/400x200/3498DB/FFFFFF?text=Digital+Skills+Post" alt="Blog Post Image">
+                        <img src="images/df.jpg" alt="Blog Post Image">
                         <div class="blog-post-info">
                             <h3>Digital Skills: A Gateway to Opportunity</h3>
                             <div class="blog-post-meta">
@@ -2247,19 +3297,19 @@
                             <div class="icon"><i class="fas fa-file-pdf"></i></div>
                             <h4>Life Skills Guide for Youth</h4>
                             <p>A comprehensive guide for navigating adolescence.</p>
-                            <a href="YCBTF_LifeSkills_Guide.pdf" target="_blank">Download PDF <i class="fas fa-download"></i></a>
+                            <a href="YCBF_LifeSkills_Guide.pdf" target="_blank">Download PDF <i class="fas fa-download"></i></a>
                         </div>
                         <div class="resource-card">
                             <div class="icon"><i class="fas fa-chart-bar"></i></div>
                             <h4>SRHR Infographic Poster</h4>
                             <p>Visual guide on sexual and reproductive health rights.</p>
-                            <a href="YCBTF_SRHR_Infographic.pdf" target="_blank">Download PDF <i class="fas fa-download"></i></a>
+                            <a href="YCBF_SRHR_Infographic.pdf" target="_blank">Download PDF <i class="fas fa-download"></i></a>
                         </div>
                         <div class="resource-card">
                             <div class="icon"><i class="fas fa-book"></i></div>
                             <h4>Youth Entrepreneurship Workbook</h4>
                             <p>Practical exercises for aspiring young entrepreneurs.</p>
-                            <a href="YCBTF_Entrepreneurship_Workbook.pdf" target="_blank">Download PDF <i class="fas fa-download"></i></a>
+                            <a href="YCBF_Entrepreneurship_Workbook.pdf" target="_blank">Download PDF <i class="fas fa-download"></i></a>
                         </div>
                     </div>
                 </div>
@@ -2309,14 +3359,13 @@
                         <a href="https://pay.example.com/mobilemoney" target="_blank" class="mobile-money"><span class="icon"><i class="fas fa-mobile-alt"></i></span> Mobile Money (Uganda)</a>
                         <a href="https://flutterwave.com/pay/your-account" target="_blank" class="flutterwave"><img src="https://placehold.co/24x24/FFFFFF/FF7F50?text=FW" alt="Flutterwave" style="height:24px;"> Flutterwave</a>
                         <a href="https://paypal.me/youraccount" target="_blank" class="paypal"><span class="icon"><i class="fab fa-paypal"></i></span> PayPal</a>
-                        <a href="mailto:donate@YCBTFuganda.org" target="_blank" class="btn btn-tertiary" style="background-color: transparent; color: var(--purple-main); border-color: var(--purple-main);"><span class="icon"><i class="fas fa-envelope"></i></span> Bank Transfer (Email for details)</a>
-                    </div>
+                        <a href="mailto:donate@YCBFuganda.org" target="_blank" class="btn btn-tertiary" style="background-color: transparent; color: var(--purple-main); border-color: var(--purple-main);"><span class="icon"><i class="fas fa-envelope"></i></span> Bank Transfer Details</a></div>
                 </div>
 
                 <div class="donor-thank-you-video animate-on-scroll">
                     <h3>A Heartfelt Thank You from Our Youth</h3>
                     <div class="video-container">
-                        <iframe src="https://youtu.be/6k6s63HikBc?si=SZVAvSqs1me83rY8" title="Thank You from YCBTF Uganda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://youtu.be/6k6s63HikBc?si=SZVAvSqs1me83rY8" title="Thank You from YCBF Uganda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -2355,15 +3404,15 @@
                             <h3>Reach Us Directly</h3>
                             <p><i class="fas fa-map-marker-alt"></i> Plot 123, Example Road, Kampala, Uganda</p>
                             <p><i class="fas fa-phone"></i> Official Phone: <a href="tel:+256770123456">+256 770 123 456</a></p>
-                            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@YCBTFuganda.org">info@YCBTFuganda.org</a></p>
+                            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@YCBFuganda.org">info@YCBFuganda.org</a></p>
                         </div>
                         <div class="contact-map-embed animate-on-scroll">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.851944686443!2d32.57398327932067!3d0.3162382590217985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb0f19c4d9a5%3A0x1c4a0e4c6b6d2e6e!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1701388800000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                         <div class="social-links animate-on-scroll">
-                            <a href="https://facebook.com/YCBTFuganda" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://twitter.com/YCBTFuganda" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="https://instagram.com/YCBTFuganda" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://facebook.com/YCBFuganda" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://twitter.com/YCBFuganda" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://instagram.com/YCBFuganda" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             <a href="https://wa.me/256770123456" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
@@ -2377,14 +3426,14 @@
         <div class="container">
             <div class="footer-col about-col">
                 <a href="index.html" class="logo" style="font-size: 1.8em; margin-bottom: 15px;">
-                    <img src="https://placehold.co/40x40/6F2DBD/FFFFFF?text=YCBTF" alt="YCBTF Uganda Logo" style="filter: invert(1);">
-                    YCBTF Uganda
+                    <img src="images/programs_intro.jpg" alt="YCBF Uganda Logo" style="filter: invert(1);">
+                    YCBF Uganda
                 </a>
                 <p>Empowering Uganda's youth with skills, knowledge, and hope for tomorrow. We build a brighter future, one young person at a time.</p>
                 <div class="footer-social-links">
-                    <a href="https://facebook.com/YCBTFuganda" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/YCBTFuganda" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com/YCBTFuganda" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/YCBFuganda" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/YCBFuganda" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/YCBFuganda" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/256770123456" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
@@ -2404,7 +3453,7 @@
                 <h4>Contact Info</h4>
                 <p><i class="fas fa-map-marker-alt"></i> Plot 123, Example Rd, Kampala, UG</p>
                 <p><i class="fas fa-phone"></i> <a href="tel:+256770123456">+256 770 123 456</a></p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:info@YCBTFuganda.org">info@YCBTFuganda.org</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@YCBFuganda.org">info@YCBFuganda.org</a></p>
             </div>
             <div class="footer-col footer-newsletter">
                 <h4>Newsletter</h4>
@@ -2592,6 +3641,74 @@
                 initCountUpAnimations();
             }
         });
+
+        
+    document.addEventListener('DOMContentLoaded', () => {
+        const countUpElements = document.querySelectorAll('.count-up');
+
+        const observerOptions = {
+            root: null, // Use the viewport as the root
+            rootMargin: '0px',
+            threshold: 0.5 // Trigger when 50% of the element is visible
+        };
+
+        const startCountAnimation = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numberElement = entry.target;
+                    const target = parseInt(numberElement.dataset.target);
+                    const total = parseInt(numberElement.dataset.total); // Get total from data attribute
+                    const duration = 2000; // milliseconds
+                    let start = 0;
+                    const increment = target / (duration / 16); // ~60 frames per second
+
+                    const animateCount = () => {
+                        start += increment;
+                        if (start < target) {
+                            numberElement.textContent = Math.round(start).toLocaleString();
+                            requestAnimationFrame(animateCount);
+                        } else {
+                            numberElement.textContent = target.toLocaleString();
+                            // Animate progress bar and update percentage text
+                            const progressBar = numberElement.closest('.impact-stat-card').querySelector('.progress-bar');
+                            const percentageText = numberElement.closest('.impact-stat-card').querySelector('.percentage-text');
+                            const percentage = (target / total) * 100; // Calculate percentage
+                            progressBar.style.width = percentage + '%';
+                            percentageText.textContent = `${Math.round(percentage)}% of Target`;
+
+                            observer.unobserve(numberElement); // Stop observing once animated
+                        }
+                    };
+                    requestAnimationFrame(animateCount);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(startCountAnimation, observerOptions);
+
+        countUpElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Optional: Add a subtle effect for the "See All Voices" card to be more prominent when scrolled into view
+        const seeMoreCard = document.querySelector('.see-more-card');
+        if (seeMoreCard) {
+            const seeMoreObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transform = 'scale(1.02)';
+                        entry.target.style.boxShadow = '0 12px 25px rgba(0,0,0,0.25)';
+                    } else {
+                        entry.target.style.transform = 'scale(1)';
+                        entry.target.style.boxShadow = '0 8px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }, { threshold: 0.2 }); // Trigger when 20% visible
+            seeMoreObserver.observe(seeMoreCard);
+        }
+    });
+    
+</script>
     </script>
 </body>
 </html>
