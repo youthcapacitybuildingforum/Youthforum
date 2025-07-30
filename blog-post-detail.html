@@ -1,0 +1,2607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Youth Capacity Trainers Forum – Uganda | Empowering Youth</title>
+    <meta name="description" content="Empowering Uganda’s youth with skills, knowledge, and hope for tomorrow through capacity building, health awareness, and guidance programs.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* --- CSS Variables --- */
+        :root {
+            --purple-main: #6F2DBD; /* Deep Purple for headings, accents */
+            --purple-light: #8E44AD; /* Lighter purple for subtle accents */
+            --green-main: #27AE60; /* Vibrant Green for highlights, health */
+            --green-light: #2ECC71; /* Lighter green for backgrounds */
+            --blue-main: #3498DB; /* Calming Blue for backgrounds, trust */
+            --blue-light: #5DADE2; /* Lighter blue for sections */
+            --white-text: #FFFFFF;
+            --dark-text: #333333;
+            --light-grey-bg: #F8F8F8;
+            --medium-grey-text: #666666;
+            --border-color: #DDDDDD;
+
+            --header-height: 80px;
+        }
+
+        /* --- Base Styles --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--light-grey-bg);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--purple-main);
+            margin-bottom: 0.8em;
+            line-height: 1.2;
+        }
+
+        a {
+            color: var(--purple-main);
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--green-main);
+            transform: translateY(-2px);
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px; /* Pill shape */
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--purple-main);
+            color: var(--white-text);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--purple-light);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: var(--green-main);
+            color: var(--white-text);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--green-light);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-tertiary {
+            background-color: transparent;
+            border: 2px solid var(--purple-main);
+            color: var(--purple-main);
+        }
+
+        .btn-tertiary:hover {
+            background-color: var(--purple-main);
+            color: var(--white-text);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.8em;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--purple-main);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--green-main);
+            border-radius: 2px;
+        }
+
+        /* --- Header --- */
+        .main-header {
+            background-color: var(--white-text);
+            padding: 15px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: calc(var(--header-height) - 30px); /* Adjust height */
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.7em;
+            font-weight: 700;
+            color: var(--purple-main);
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px; /* Adjust as needed */
+            margin-right: 10px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            font-weight: 600;
+            color: var(--dark-text);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 3px;
+            background-color: var(--green-main);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover::after,
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        /* Hamburger Menu for Mobile */
+        .hamburger-menu {
+            display: none;
+            width: 30px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0;
+            z-index: 1100;
+        }
+
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--purple-main);
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger-menu.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger-menu.active span:nth-child(2) { opacity: 0; }
+        .hamburger-menu.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* In style.css */
+
+/* Remove/Adjust the previous .mobile-nav styles as they won't apply to the new structure */
+/* Remove:
+.mobile-nav { ... }
+.mobile-nav.active { ... }
+.mobile-nav ul { ... }
+... and so on for .mobile-nav specific styles
+*/
+
+/* Add these new styles, typically near your main header/nav styles */
+
+/* ============================================== */
+/* --- Fullscreen Overlay Navigation (New) --- */
+/* ============================================== */
+.overlay {
+    height: 100%; /* Full height */
+    width: 0; /* Start with 0 width - will be expanded by JS */
+    position: fixed; /* Stay in place */
+    z-index: 1002; /* Sit on top of everything else (above header) */
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.9); /* Black background with opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or out */
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* Some space from the top */
+}
+
+.overlay-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.overlay-content ul li {
+    margin-bottom: 20px;
+}
+
+.overlay-content a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px; /* Large font for mobile menu items */
+    color: var(--light-grey-text); /* Lighter color for links */
+    display: block; /* Make links full width */
+    transition: 0.3s; /* Transition effect on hover */
+    font-weight: 600;
+}
+
+.overlay-content a:hover, .overlay-content a:focus {
+    color: var(--green-main); /* Highlight color on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+.overlay-content a.btn { /* Style for buttons within the overlay */
+    font-size: 24px; /* Slightly smaller font for buttons */
+    margin: 15px auto;
+    width: 250px; /* Fixed width for buttons */
+}
+
+/* Close button */
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    color: var(--white-text); /* White close button */
+    padding: 0; /* Remove padding for close button */
+    margin: 0; /* Remove margin for close button */
+}
+
+.overlay .closebtn:hover {
+    color: var(--green-main);
+}
+
+
+/* ============================================== */
+/* --- Responsive Design (Media Queries) --- */
+/* ============================================== */
+
+@media (max-width: 768px) { /* Your breakpoint for mobile nav */
+    .main-nav {
+        display: none; /* Hide desktop nav */
+    }
+    .hamburger-menu {
+        display: flex; /* Show hamburger icon */
+    }
+    .header-content {
+        flex-wrap: nowrap; /* Keep logo and hamburger on one line */
+    }
+
+    /* Smaller font size for overlay links on smaller screens */
+    .overlay-content a {
+        font-size: 30px;
+    }
+    .overlay-content a.btn {
+        font-size: 20px;
+        padding: 10px 20px;
+        width: 200px;
+    }
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .overlay-content a {
+        font-size: 24px;
+    }
+    .overlay-content a.btn {
+        font-size: 18px;
+        padding: 8px 15px;
+        width: 180px;
+    }
+    .overlay .closebtn {
+        font-size: 30px;
+        top: 10px;
+        right: 25px;
+    }
+}
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.app.goo.gl/5qKQBWZCuCm7tzNE8') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white-text);
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.8em;
+            margin-bottom: 25px;
+            color: var(--white-text);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero-content .tagline {
+            font-size: 1.6em;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- Featured Icons Section --- */
+        .featured-icons-section {
+            padding: 60px 0;
+            background-color: var(--white-text);
+            border-bottom: 1px solid var(--border-color);
+            margin-top: -80px; /* Overlap with hero */
+            position: relative;
+            z-index: 10;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .icon-item {
+            background-color: var(--light-grey-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .icon-item .icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            color: var(--purple-main);
+        }
+        .icon-item:nth-child(1) .icon { color: var(--purple-main); } /* Education */
+        .icon-item:nth-child(2) .icon { color: var(--green-main); } /* Health */
+        .icon-item:nth-child(3) .icon { color: var(--blue-main); } /* Guidance */
+
+        .icon-item h3 {
+            font-size: 1.5em;
+            color: var(--dark-text);
+            margin-bottom: 0;
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials-section {
+            background-color: var(--light-grey-bg);
+            padding-bottom: 100px;
+        }
+
+        .testimonials-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 30px;
+            padding-bottom: 20px;
+            margin-top: 50px;
+            justify-content: flex-start;
+        }
+
+        .testimonial-card {
+            flex: 0 0 380px; /* Fixed width for carousel items */
+            scroll-snap-align: start;
+            background-color: var(--white-text);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            text-align: left;
+            position: relative;
+            border-top: 5px solid var(--purple-main);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--medium-grey-text);
+            font-size: 0.95em;
+        }
+
+        .testimonial-card .author-info {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .testimonial-card .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid var(--green-main);
+        }
+
+        .testimonial-card .author-details h4 {
+            font-size: 1.2em;
+            margin: 0;
+            color: var(--dark-text);
+        }
+
+        .testimonial-card .author-details p {
+            margin: 0;
+            font-size: 0.9em;
+            color: var(--medium-grey-text);
+        }
+
+        /* --- Video Section --- */
+        .video-section {
+            background-color: var(--blue-light);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .video-section h2 {
+            color: var(--white-text);
+            margin-bottom: 40px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- About Us Page --- */
+        .about-us-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x400/27AE60/FFFFFF?text=About+Us') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-text);
+            text-align: center;
+        }
+        .about-us-hero h1 {
+            font-size: 3.5em;
+            color: var(--white-text);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .about-content-section {
+            background-color: var(--white-text);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .about-intro, .vision-mission-values, .team-section {
+            margin-bottom: 60px;
+        }
+
+        .about-intro {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-intro img {
+            max-width: 450px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .about-intro > div {
+            flex: 1 1 500px;
+        }
+
+        .vision-mission-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .vmv-card {
+            background-color: var(--light-grey-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            border-top: 4px solid var(--blue-main);
+        }
+        .vmv-card:nth-child(1) { border-color: var(--blue-main); }
+        .vmv-card:nth-child(2) { border-color: var(--green-main); }
+        .vmv-card:nth-child(3) { border-color: var(--purple-main); }
+
+        .vmv-card h3 {
+            font-size: 1.6em;
+            color: var(--dark-text);
+            margin-bottom: 15px;
+        }
+        .vmv-card h3::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            display: block;
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: var(--purple-main);
+        }
+        .vmv-card:nth-child(1) h3::before { content: "\f06e"; color: var(--blue-main);} /* Vision Eye */
+        .vmv-card:nth-child(2) h3::before { content: "\f0a9"; color: var(--green-main);} /* Mission Flag */
+        .vmv-card:nth-child(3) h3::before { content: "\f530"; color: var(--purple-main);} /* Values Handshake */
+
+
+        .core-values-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .core-values-list li {
+            background-color: var(--blue-main);
+            color: var(--white-text);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .team-member-card {
+            background-color: var(--light-grey-bg);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .team-member-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--purple-main);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .team-member-card h4 {
+            font-size: 1.4em;
+            margin-bottom: 5px;
+            color: var(--dark-text);
+        }
+
+        .team-member-card p {
+            font-size: 0.9em;
+            color: var(--medium-grey-text);
+            margin-bottom: 0;
+        }
+
+        /* --- Programs Page --- */
+        .programs-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x400/3498DB/FFFFFF?text=Our+Programs') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-text);
+            text-align: center;
+        }
+        .programs-hero h1 {
+            font-size: 3.5em;
+            color: var(--white-text);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .program-section-wrapper {
+            background-color: var(--white-text);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .program-category {
+            margin-bottom: 100px;
+            padding: 50px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden; /* For background image */
+            transition: transform 0.3s ease;
+        }
+        .program-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-category h3 {
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--white-text);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .program-category h3 .icon {
+            margin-right: 15px;
+            font-size: 1em;
+        }
+        .program-category h3::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--white-text);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+
+        /* Specific Program Styles */
+        .program-capacity {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1200x500/6F2DBD/FFFFFF?text=Capacity+Building') no-repeat center center/cover;
+            background-color: var(--purple-main);
+        }
+        .program-capacity h3 { color: var(--white-text); }
+        .program-capacity .program-content p { color: var(--light-grey-bg); }
+        .program-capacity .program-grid img { border: 3px solid var(--purple-light); }
+
+        .program-health {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1200x500/27AE60/FFFFFF?text=Health+Awareness') no-repeat center center/cover;
+            background-color: var(--green-main);
+        }
+        .program-health h3 { color: var(--white-text); }
+        .program-health .program-content p { color: var(--light-grey-bg); }
+        .program-health .program-grid img { border: 3px solid var(--green-light); }
+
+
+        .program-counseling {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1200x500/3498DB/FFFFFF?text=Counseling+Guidance') no-repeat center center/cover;
+            background-color: var(--blue-main);
+        }
+        .program-counseling h3 { color: var(--white-text); }
+        .program-counseling .program-content p { color: var(--light-grey-bg); }
+        .program-counseling .program-grid img { border: 3px solid var(--blue-light); }
+
+        .program-school {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1200x500/8E44AD/FFFFFF?text=School+Clubs') no-repeat center center/cover;
+            background-color: var(--purple-light);
+        }
+        .program-school h3 { color: var(--white-text); }
+        .program-school .program-content p { color: var(--light-grey-bg); }
+        .program-school .program-grid img { border: 3px solid var(--purple-main); }
+
+
+        .program-community {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1200x500/2ECC71/FFFFFF?text=Community+Engagement') no-repeat center center/cover;
+            background-color: var(--green-light);
+        }
+        .program-community h3 { color: var(--white-text); }
+        .program-community .program-content p { color: var(--light-grey-bg); }
+        .program-community .program-grid img { border: 3px solid var(--green-main); }
+
+
+        .program-content {
+            padding: 0 40px;
+            color: var(--white-text);
+            text-align: center;
+        }
+        .program-content p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1em;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .program-grid-item {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+        .program-grid-item:hover {
+            transform: scale(1.03);
+        }
+
+        .program-grid-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .program-grid-item .info {
+            padding: 20px;
+            color: var(--white-text);
+        }
+
+        .program-grid-item .info h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: var(--white-text);
+        }
+
+        .program-grid-item .info p {
+            font-size: 0.9em;
+            margin-bottom: 0;
+            color: var(--light-grey-bg);
+        }
+
+        /* Logos for School Clubs */
+        .school-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .school-logos img {
+            max-width: 120px;
+            height: auto;
+            background-color: var(--white-text);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        .school-logos img:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- Impact Page --- */
+        .impact-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x400/6F2DBD/FFFFFF?text=Our+Impact') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-text);
+            text-align: center;
+        }
+        .impact-hero h1 {
+            font-size: 3.5em;
+            color: var(--white-text);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .impact-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .impact-stat-card {
+            background-color: var(--white-text);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-bottom: 5px solid var(--green-main);
+            transition: transform 0.3s ease;
+        }
+        .impact-stat-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .impact-stat-card .number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            color: var(--purple-main);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .impact-stat-card p {
+            font-size: 1.2em;
+            color: var(--medium-grey-text);
+            margin-bottom: 0;
+        }
+
+        .impact-map-section {
+            background-color: var(--blue-light);
+            padding: 80px 0;
+            text-align: center;
+        }
+        .impact-map-section h2 {
+            color: var(--white-text);
+            margin-bottom: 40px;
+        }
+        .impact-map-embed {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid var(--border-color);
+        }
+        .impact-map-embed iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+        }
+
+        .photo-albums-section {
+            background-color: var(--light-grey-bg);
+        }
+        .photo-album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .photo-album-card {
+            background-color: var(--white-text);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .photo-album-card:hover {
+            transform: translateY(-8px);
+        }
+        .photo-album-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .photo-album-card .info {
+            padding: 20px;
+            text-align: center;
+        }
+        .photo-album-card .info h4 {
+            font-size: 1.4em;
+            color: var(--dark-text);
+            margin-bottom: 10px;
+        }
+        .photo-album-card .info a {
+            color: var(--green-main);
+            font-weight: 600;
+        }
+
+        /* --- Join Us / Volunteer Page --- */
+        .join-us-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x400/27AE60/FFFFFF?text=Join+Our+Team') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-text);
+            text-align: center;
+        }
+        .join-us-hero h1 {
+            font-size: 3.5em;
+            color: var(--white-text);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .join-form-section {
+            background-color: var(--white-text);
+        }
+
+        .join-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        .join-intro p {
+            font-size: 1.1em;
+            color: var(--medium-grey-text);
+        }
+
+        .volunteer-form-container {
+            background-color: var(--light-grey-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: 0 auto;
+            border-top: 5px solid var(--purple-main);
+        }
+
+        .volunteer-form-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        .volunteer-form-container input[type="text"],
+        .volunteer-form-container input[type="email"],
+        .volunteer-form-container input[type="number"],
+        .volunteer-form-container textarea,
+        .volunteer-form-container select {
+            width: calc(100% - 24px); /* Account for padding + border */
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            background-color: var(--white-text);
+            color: var(--dark-text);
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .volunteer-form-container input:focus,
+        .volunteer-form-container textarea:focus,
+        .volunteer-form-container select:focus {
+            border-color: var(--purple-main);
+            box-shadow: 0 0 0 3px rgba(111, 45, 189, 0.2);
+        }
+
+        .volunteer-form-container textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .volunteer-form-container button[type="submit"] {
+            width: 100%;
+            background-color: var(--green-main);
+            color: var(--white-text);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .volunteer-form-container button[type="submit"]:hover {
+            background-color: var(--green-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .download-brochure {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .download-brochure a {
+            color: var(--blue-main);
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        /* --- Blog / Resources Page --- */
+        .blog-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x400/3498DB/FFFFFF?text=Blog+Resources') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-text);
+            text-align: center;
+        }
+        .blog-hero h1 {
+            font-size: 3.5em;
+            color: var(--white-text);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .blog-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .blog-post-card {
+            background-color: var(--white-text);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-post-card:hover {
+            transform: translateY(-8px);
+        }
+        .blog-post-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .blog-post-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-post-info h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+        }
+        .blog-post-meta {
+            font-size: 0.85em;
+            color: var(--medium-grey-text);
+            margin-bottom: 15px;
+        }
+        .blog-post-meta span {
+            margin-right: 15px;
+        }
+        .blog-post-info p {
+            font-size: 0.95em;
+            color: var(--medium-grey-text);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .blog-post-info .read-more {
+            color: var(--green-main);
+            font-weight: 600;
+            margin-top: auto; /* Pushes to bottom */
+        }
+
+        .resource-downloads {
+            margin-top: 80px;
+            text-align: center;
+        }
+        .resource-downloads h3 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: var(--purple-main);
+        }
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .resource-card {
+            background-color: var(--white-text);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            border-top: 4px solid var(--blue-main);
+            transition: transform 0.3s ease;
+        }
+        .resource-card:hover {
+            transform: translateY(-8px);
+        }
+        .resource-card .icon {
+            font-size: 3em;
+            color: var(--blue-main);
+            margin-bottom: 15px;
+        }
+        .resource-card h4 {
+            font-size: 1.4em;
+            color: var(--dark-text);
+            margin-bottom: 10px;
+        }
+        .resource-card a {
+            color: var(--green-main);
+            font-weight: 600;
+        }
+
+        /* --- Donate / Support Page --- */
+        .donate-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x400/6F2DBD/FFFFFF?text=Support+Our+Cause') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-text);
+            text-align: center;
+        }
+        .donate-hero h1 {
+            font-size: 3.5em;
+            color: var(--white-text);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .donate-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 50px;
+        }
+        .donate-intro p {
+            font-size: 1.1em;
+            color: var(--medium-grey-text);
+        }
+        .how-donations-help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .help-item-card {
+            background-color: var(--white-text);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            border-left: 4px solid var(--green-main);
+            transition: transform 0.3s ease;
+        }
+        .help-item-card:hover {
+            transform: translateY(-8px);
+        }
+        .help-item-card .icon {
+            font-size: 2.5em;
+            color: var(--green-main);
+            margin-bottom: 15px;
+        }
+        .help-item-card h4 {
+            font-size: 1.3em;
+            color: var(--dark-text);
+            margin-bottom: 10px;
+        }
+        .help-item-card p {
+            font-size: 0.9em;
+            color: var(--medium-grey-text);
+            margin-bottom: 0;
+        }
+
+        .payment-options {
+            text-align: center;
+            margin-top: 80px;
+        }
+        .payment-options h3 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: var(--purple-main);
+        }
+        .payment-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .payment-buttons a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--blue-main);
+            color: var(--white-text);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .payment-buttons a.mobile-money { background-color: #55acee; }
+        .payment-buttons a.flutterwave { background-color: #FF7F50; }
+        .payment-buttons a.paypal { background-color: #0070BA; }
+
+        .payment-buttons a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            filter: brightness(1.1);
+        }
+        .payment-buttons a .icon {
+            font-size: 1.3em;
+        }
+
+        .donor-thank-you-video {
+            margin-top: 80px;
+            text-align: center;
+        }
+        .donor-thank-you-video h3 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: var(--green-main);
+        }
+
+
+        /* --- Contact Us Page --- */
+        .contact-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x400/3498DB/FFFFFF?text=Contact+Us') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-text);
+            text-align: center;
+        }
+        .contact-hero h1 {
+            font-size: 3.5em;
+            color: var(--white-text);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .contact-content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .contact-form-container {
+            background-color: var(--white-text);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--purple-main);
+        }
+
+        .contact-form-container h3 {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .contact-form-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        .contact-form-container input[type="text"],
+        .contact-form-container input[type="email"],
+        .contact-form-container input[type="tel"],
+        .contact-form-container textarea {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            background-color: var(--light-grey-bg);
+            color: var(--dark-text);
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form-container input:focus,
+        .contact-form-container textarea:focus {
+            border-color: var(--purple-main);
+            box-shadow: 0 0 0 3px rgba(111, 45, 189, 0.2);
+        }
+
+        .contact-form-container textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form-container button {
+            width: 100%;
+            background-color: var(--green-main);
+            color: var(--white-text);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .contact-form-container button:hover {
+            background-color: var(--green-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .contact-info-map-social {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .contact-details-card {
+            background-color: var(--white-text);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--blue-main);
+        }
+        .contact-details-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: var(--dark-text);
+        }
+        .contact-details-card p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: var(--medium-grey-text);
+        }
+        .contact-details-card p i {
+            font-size: 1.3em;
+            margin-right: 15px;
+            color: var(--blue-main);
+        }
+
+        .contact-map-embed {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+        .contact-map-embed iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+
+        .social-links {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .social-links a {
+            font-size: 2.2em;
+            color: var(--purple-main);
+            margin: 0 15px;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .social-links a:hover {
+            color: var(--green-main);
+            transform: scale(1.1);
+        }
+
+        /* --- Footer --- */
+        .main-footer {
+            background-color: var(--dark-text);
+            color: var(--white-text);
+            padding: 60px 0 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9em;
+        }
+
+        .main-footer .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1 1 220px;
+            min-width: 180px;
+            text-align: left;
+        }
+
+        .footer-col.about-col {
+            flex: 1 1 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.3em;
+            margin-bottom: 25px;
+            color: var(--green-main);
+        }
+
+        .footer-col p, .footer-col ul li {
+            font-size: 0.9em;
+            line-height: 1.8;
+            color: var(--light-grey-bg);
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--light-grey-bg);
+            font-size: 0.95em;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--green-main);
+        }
+
+        .footer-social-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-social-links a {
+            font-size: 1.6em;
+            color: var(--light-grey-bg);
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .footer-social-links a:hover {
+            color: var(--green-main);
+            transform: translateY(-3px);
+        }
+        .footer-newsletter input {
+            width: calc(100% - 24px);
+            padding: 10px;
+            border: 1px solid var(--medium-grey-text);
+            border-radius: 5px;
+            background-color: #444;
+            color: var(--white-text);
+            margin-bottom: 10px;
+        }
+        .footer-newsletter button {
+            width: 100%;
+            background-color: var(--purple-main);
+            color: var(--white-text);
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .footer-newsletter button:hover {
+            background-color: var(--purple-light);
+        }
+
+
+        .footer-bottom-text {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8em;
+            color: var(--medium-grey-text);
+            margin-top: 40px;
+        }
+
+        /* --- Animations --- */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Counter animation */
+        .count-up {
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        .count-up.in-view {
+            opacity: 1;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .main-nav { display: none; }
+            .hamburger-menu { display: flex; }
+
+            .hero-content h1 { font-size: 3em; }
+            .hero-content .tagline { font-size: 1.4em; }
+            .hero-section { height: 70vh; }
+
+            .section-title { font-size: 2.2em; margin-bottom: 40px; }
+
+            .icon-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            .testimonial-card { flex: 0 0 90%; margin: 0 auto 20px auto; } /* Adjust for mobile carousel */
+
+            .about-intro { flex-direction: column; text-align: center; }
+            .about-intro img { max-width: 80%; margin-bottom: 30px; }
+            .vmv-card { margin-bottom: 20px; }
+
+            .program-category h3 { font-size: 1.8em; }
+            .program-content p { font-size: 1em; }
+
+            .impact-stats-grid, .photo-album-grid, .blog-posts-grid, .resource-grid, .how-donations-help-grid, .contact-content-grid {
+                grid-template-columns: 1fr;
+            }
+            .impact-map-embed iframe { height: 350px; }
+
+            .volunteer-form-container, .contact-form-container {
+                padding: 30px;
+                margin: 0 20px;
+            }
+            .payment-buttons { flex-direction: column; align-items: center; }
+
+            .footer-col { flex: 1 1 100%; text-align: center; }
+            .footer-col ul, .footer-social-links { justify-content: center; }
+            .footer-newsletter input, .footer-newsletter button { max-width: 300px; margin-left: auto; margin-right: auto; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section { height: 60vh; }
+            .hero-content h1 { font-size: 2.5em; }
+            .hero-content .tagline { font-size: 1.2em; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 80%; max-width: 300px; }
+            .featured-icons-section { margin-top: -60px; padding: 40px 0; }
+            .icon-grid { gap: 20px; }
+            .icon-item { padding: 20px; }
+            .icon-item .icon { font-size: 3em; }
+            .icon-item h3 { font-size: 1.3em; }
+
+            .video-container { height: auto; padding-bottom: 75%; } /* Adjust for mobile video */
+
+            .about-us-hero h1, .programs-hero h1, .impact-hero h1, .join-us-hero h1, .blog-hero h1, .donate-hero h1, .contact-hero h1 {
+                font-size: 2.5em;
+            }
+            .program-category { padding: 30px 0; }
+            .program-category h3 { font-size: 1.6em; }
+            .program-content p { font-size: 0.95em; }
+
+            .impact-map-embed iframe { height: 280px; }
+            .impact-stat-card .number { font-size: 3em; }
+            .impact-stat-card p { font-size: 1.1em; }
+
+            .join-intro p, .donate-intro p { font-size: 1em; }
+            .volunteer-form-container, .contact-form-container { padding: 25px; }
+
+            .blog-post-info h3 { font-size: 1.3em; }
+            .blog-post-info p { font-size: 0.9em; }
+
+            .payment-buttons a { padding: 10px 20px; font-size: 0.9em; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section { height: 50vh; }
+            .hero-content h1 { font-size: 2em; }
+            .hero-content .tagline { font-size: 1em; }
+            .main-header .container { padding: 0 15px; }
+            .logo { font-size: 1.5em; }
+            .logo img { height: 35px; }
+            .section-padding { padding: 50px 0; }
+            .section-title { font-size: 1.8em; margin-bottom: 30px; }
+
+            .featured-icons-section { margin-top: -40px; padding: 30px 0; }
+            .icon-item { padding: 15px; }
+            .icon-item .icon { font-size: 2.5em; }
+            .icon-item h3 { font-size: 1.2em; }
+
+            .testimonial-card { flex: 0 0 100%; margin: 0 10px 20px 10px; }
+
+            .about-us-hero h1, .programs-hero h1, .impact-hero h1, .join-us-hero h1, .blog-hero h1, .donate-hero h1, .contact-hero h1 {
+                font-size: 2.2em;
+            }
+            .program-category h3 { font-size: 1.4em; }
+            .program-content p { font-size: 0.9em; }
+            .program-grid-item img { height: 180px; }
+
+            .impact-stat-card { padding: 20px; }
+            .impact-stat-card .number { font-size: 2.8em; }
+
+            .volunteer-form-container, .contact-form-container {
+                padding: 20px;
+                margin: 0 10px;
+            }
+            .volunteer-form-container input, .contact-form-container input,
+            .volunteer-form-container textarea, .contact-form-container textarea,
+            .volunteer-form-container select, .contact-form-container button {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+            .contact-details-card { padding: 20px; }
+            .contact-details-card p { font-size: 1em; }
+            .social-links a { font-size: 1.8em; margin: 0 10px; }
+        }
+
+        /* --- Wall of Fame: Featured Projects --- */
+#wall-of-fame {
+    background-color: var(--white-text); /* Or choose another background if preferred for this section */
+    padding: var(--section-padding); /* Using your general section padding */
+}
+
+/* Update these sections in your existing css/style.css */
+
+/* ============================================== */
+/* --- Header & Navigation --- */
+/* ============================================== */
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Removed flex-wrap here; will handle mobile nav separately */
+}
+
+/* Logo and text styling */
+.logo {
+    display: flex; /* Aligns logo image and text horizontally */
+    align-items: center;
+    font-size: 1.5em; /* Adjust as needed */
+    font-weight: 700;
+    color: var(--purple-main); /* Or your preferred logo text color */
+}
+
+.logo img {
+    height: 50px; /* Adjust logo height */
+    width: auto;
+    margin-right: 10px; /* Space between logo and text */
+}
+
+
+/* Desktop Navigation (main-nav) */
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Always display for desktop */
+    align-items: center;
+    gap: 25px;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--medium-grey-text);
+    font-weight: 500;
+    font-size: 1em;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.main-nav ul li a:hover {
+    color: var(--purple-main);
+}
+
+.main-nav ul li a.active {
+    color: var(--green-main);
+    font-weight: 600;
+}
+
+.main-nav ul li a.active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--green-main);
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    border-radius: 1px;
+}
+
+.main-nav ul li .btn {
+    padding: 8px 20px;
+    font-size: 0.9em;
+}
+
+/* In style.css */
+
+/* ============================================== */
+/* --- Header & Navigation (Review ALL of this section carefully) --- */
+/* ============================================== */
+.main-header {
+    background-color: var(--white-text);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Removed flex-wrap here; mobile nav is now handled separately below */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--purple-main);
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+/* Desktop Navigation (main-nav) */
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Always display for desktop */
+    align-items: center;
+    gap: 25px;
+}
+/* ... (rest of .main-nav styles - hover, active, etc.) ... */
+
+
+/* Hamburger Menu Button */
+.hamburger-menu {
+    display: none; /* Hidden by default on desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--purple-main);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+/* Optional: Hamburger animation styles if you added them */
+.hamburger-menu.open span:nth-child(1) { /* ... styles ... */ }
+.hamburger-menu.open span:nth-child(2) { /* ... styles ... */ }
+.hamburger-menu.open span:nth-child(3) { /* ... styles ... */ }
+
+
+/* Mobile Navigation (mobile-nav) */
+.mobile-nav {
+    display: block; /* Change from 'none' initially to 'block' for transition */
+    position: absolute; /* Position relative to the header */
+    top: 80px; /* Adjust based on your header's actual height (50px logo + padding) */
+    left: 0;
+    width: 100%;
+    background-color: var(--white-text);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 999; /* Below the header but above content */
+    overflow: hidden; /* Hide overflowing content during transition */
+    max-height: 0; /* Key for initial hidden state and animating height */
+    padding: 0 0; /* Key for initial hidden state and animating padding */
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.mobile-nav.active {
+    max-height: 400px; /* Or a value large enough to contain all menu items */
+    padding: 20px 0; /* Padding for when it's open */
+}
+
+.mobile-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.mobile-nav ul li {
+    width: 100%;
+    text-align: center;
+}
+
+.mobile-nav ul li a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--black-text);
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* ... (rest of .mobile-nav styles - hover, active, btn styles within mobile nav) ... */
+
+
+/* Media Queries (CRUCIAL for toggling display) */
+@media (max-width: 768px) { /* Your breakpoint for mobile nav */
+    .main-nav {
+        display: none; /* Hide desktop nav */
+    }
+    .hamburger-menu {
+        display: flex; /* Show hamburger icon */
+    }
+    .header-content {
+        flex-wrap: nowrap; /* Keep logo and hamburger on one line */
+    }
+    /* mobile-nav display is controlled by JS and .active class, not by media query directly here */
+}
+
+@media (max-width: 480px) {
+    /* ... (adjustments for smaller mobile screens) ... */
+    .mobile-nav {
+        top: 65px; /* Example adjustment if header gets shorter */
+    }
+}
+
+/* In css/style.css, add these new styles */
+
+/* ============================================== */
+/* --- Blog Post Detail Page Hero Section --- */
+/* ============================================== */
+.blog-post-hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/blog_hero.jpg') no-repeat center center/cover; /* Specific image for blog hero */
+    text-align: center;
+}
+.blog-post-hero h1 {
+    color: var(--white-text);
+    font-size: 3.5em;
+    margin-bottom: 20px;
+}
+.blog-post-hero .post-meta-hero {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.blog-post-hero .post-meta-hero i {
+    color: var(--green-main);
+    margin-right: 5px;
+}
+
+
+/* ============================================== */
+/* --- Blog Post Content Section --- */
+/* ============================================== */
+.blog-post-content {
+    /* Uses .section-padding and .bg-light-grey */
+}
+
+.blog-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Main content 2/3, sidebar 1/3 */
+    gap: 60px; /* Space between main content and sidebar */
+    align-items: flex-start; /* Align content to the top */
+}
+
+.main-post-area {
+    /* Styles for the main blog post content */
+}
+
+.main-post-area p {
+    color: var(--medium-grey-text);
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.main-post-area h3 {
+    color: var(--purple-main);
+    font-size: 2em;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.main-post-area blockquote {
+    background-color: var(--white-text);
+    border-left: 5px solid var(--green-main);
+    padding: 25px 30px;
+    margin: 30px 0;
+    font-style: italic;
+    color: var(--dark-text);
+    font-size: 1.15em;
+    line-height: 1.7;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.main-post-area blockquote footer {
+    margin-top: 15px;
+    font-style: normal;
+    font-size: 0.9em;
+    color: var(--light-grey-text);
+    text-align: right;
+}
+
+.post-thumbnail-large {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.post-thumbnail-large img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.post-tags {
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.post-tags span {
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-right: 5px;
+}
+
+.post-tags a {
+    background-color: var(--light-grey-bg);
+    color: var(--medium-grey-text);
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.post-tags a:hover {
+    background-color: var(--green-main);
+    color: var(--white-text);
+}
+
+
+/* --- Sidebar Area --- */
+.sidebar-area {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between sidebar blocks */
+}
+
+.sidebar-block {
+    background-color: var(--white-text);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-block h4 {
+    color: var(--purple-main);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.sidebar-block ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sidebar-block ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar-block ul li a {
+    color: var(--medium-grey-text);
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.sidebar-block ul li a:hover {
+    color: var(--green-main);
+}
+
+.sidebar-block.categories ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sidebar-block.categories ul li span {
+    color: var(--light-grey-text);
+    font-size: 0.9em;
+}
+
+.sidebar-block.cta-sidebar {
+    background: linear-gradient(135deg, var(--green-main), var(--purple-main)); /* Gradient CTA */
+    color: var(--white-text);
+    text-align: center;
+    padding: 30px;
+}
+.sidebar-block.cta-sidebar h4 {
+    color: var(--white-text);
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+.sidebar-block.cta-sidebar p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+}
+.sidebar-block.cta-sidebar .btn {
+    background-color: var(--white-text);
+    color: var(--purple-main);
+    border: 2px solid var(--white-text);
+    font-weight: 700;
+}
+.sidebar-block.cta-sidebar .btn:hover {
+    background-color: transparent;
+    color: var(--white-text);
+    border-color: var(--white-text);
+}
+
+
+/* ============================================== */
+/* --- Related Posts Section --- */
+/* ============================================== */
+.related-posts-section {
+    background-color: var(--light-grey-bg); /* Or match your testimonials section */
+    padding: var(--section-padding-desktop);
+}
+.related-posts-section .section-title {
+    margin-bottom: 60px;
+}
+/* Reuses .blog-posts-grid and .blog-post-card styles from homepage */
+
+
+/* ============================================== */
+/* --- Responsive Design (Media Queries) for Blog Post Detail Page --- */
+/* ============================================== */
+
+@media (max-width: 992px) {
+    .blog-post-hero h1 {
+        font-size: 2.8em;
+    }
+    .blog-post-hero .post-meta-hero {
+        font-size: 1em;
+    }
+
+    .blog-content-grid {
+        grid-template-columns: 1fr; /* Stack main content and sidebar on tablet */
+        gap: 40px;
+    }
+    .main-post-area p {
+        font-size: 1em;
+    }
+    .main-post-area h3 {
+        font-size: 1.8em;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+    .main-post-area blockquote {
+        padding: 20px 25px;
+        font-size: 1.05em;
+    }
+    .post-tags {
+        padding-top: 15px;
+    }
+    .post-tags a {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+
+    .sidebar-block {
+        padding: 20px;
+    }
+    .sidebar-block h4 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+    .sidebar-block ul li a {
+        font-size: 0.95em;
+    }
+    .sidebar-block.cta-sidebar {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-post-hero h1 {
+        font-size: 2.2em;
+    }
+    .blog-post-hero .post-meta-hero {
+        font-size: 0.9em;
+        gap: 10px;
+    }
+
+    .main-post-area p {
+        font-size: 0.95em;
+    }
+    .main-post-area h3 {
+        font-size: 1.6em;
+        margin-top: 25px;
+        margin-bottom: 10px;
+    }
+    .main-post-area blockquote {
+        padding: 15px 20px;
+        font-size: 1em;
+    }
+    .post-thumbnail-large {
+        border-radius: 0; /* Remove rounded corners on small screens */
+    }
+
+    .sidebar-block h4 {
+        font-size: 1.2em;
+    }
+    .sidebar-block ul li a {
+        font-size: 0.9em;
+    }
+    .sidebar-block.cta-sidebar {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-post-hero h1 {
+        font-size: 1.8em;
+    }
+    .blog-post-hero .post-meta-hero {
+        font-size: 0.8em;
+    }
+
+    .main-post-area p {
+        font-size: 0.9em;
+    }
+    .main-post-area h3 {
+        font-size: 1.4em;
+    }
+    .main-post-area blockquote {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://placehold.co/40x40/6F2DBD/FFFFFF?text=YCBF" alt="YCBF Uganda Logo">
+                YCBF Uganda
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="join.html">Join Us</a></li>
+                    <li><a href="spotlight.html">Spotlight</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="opportunities.html">Opportunities</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="impact.html">Impact</a></li>
+            <li><a href="join.html">Join Us</a></li>
+            <li><a href="spotlight.html">Spotlight</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="opportunities.html">Opportunities</a></li>
+            <li><a href="join.html" class="btn btn-secondary">Join Us</a></li>
+            <li><a href="donate.html" class="btn btn-primary">Donate</a></li>
+        </ul>
+    </nav>
+    </header>
+
+
+
+         <!-- ==================== MAIN CONTENT AREA FOR BLOG POST DETAIL PAGE ==================== -->
+    <main>
+        <!-- Blog Post Hero Section -->
+        <section class="hero-section page-hero blog-post-hero">
+            <div class="container">
+                <h1>Developing Tomorrow's Leaders</h1> <!-- Update this with actual blog post title -->
+                <p class="post-meta-hero">
+                    <span><i class="fas fa-user"></i> By Team YCBF</span>
+                    <span><i class="fas fa-calendar-alt"></i> July 15, 2025</span>
+                    <span><i class="fas fa-tag"></i> Leadership, Youth Empowerment</span> <!-- Add relevant tags -->
+                </p>
+            </div>
+        </section>
+
+        <!-- Blog Post Content Section -->
+        <section class="blog-post-content section-padding bg-light-grey">
+            <div class="container blog-content-grid">
+                <div class="main-post-area">
+                    <div class="post-thumbnail-large">
+                        <img src="images/dd.jpg" alt="Featured Image for Blog Post"> <!-- Update this image -->
+                    </div>
+                    <p>In today's rapidly evolving world, equipping young people with strong leadership skills is more critical than ever. At YCBF Uganda, we believe that true empowerment comes from nurturing not just academic abilities, but also the confidence, communication, and critical thinking necessary to drive positive change in their communities.</p>
+
+                    <p>Our leadership workshops are designed to be interactive and engaging, moving beyond traditional classroom settings. We focus on practical exercises, group discussions, and real-world case studies that challenge youth to think creatively and collaboratively. Topics covered include effective communication, conflict resolution, decision-making, and ethical leadership.</p>
+
+                    <h3>Building Confidence Through Action</h3>
+                    <p>One of the most significant outcomes of our leadership programs is the visible boost in confidence among participants. Many young people, initially shy or hesitant, emerge as articulate and proactive individuals ready to take on leadership roles in their schools, churches, and local communities. We encourage them to initiate small projects, organize community events, and advocate for issues they care about, providing them with hands-on experience in leadership.</p>
+
+                    <blockquote>
+                        <p>"YCBF Uganda gave me the voice I never knew I had. I used to be afraid to speak in public, but after the workshops, I now confidently lead my school's debate club. This program truly changed my life."</p>
+                        <footer>— Ben E., Youth Beneficiary, Kampala</footer>
+                    </blockquote>
+
+                    <h3>The Ripple Effect of Empowered Youth</h3>
+                    <p>The impact of developing tomorrow's leaders extends far beyond the individual. Empowered youth become catalysts for change, inspiring their peers and contributing to the overall development of their communities. They are better equipped to identify local challenges and work towards sustainable solutions, fostering a generation of proactive citizens.</p>
+
+                    <p>We are committed to expanding our leadership development initiatives to reach more young people across Uganda. By investing in their potential today, we are building a stronger, more resilient future for all.</p>
+
+                    <div class="post-tags">
+                        <span>Tags:</span>
+                        <a href="#">#Leadership</a>
+                        <a href="#">#YouthEmpowerment</a>
+                        <a href="#">#CommunityDevelopment</a>
+                        <a href="#">#Uganda</a>
+                    </div>
+                </div>
+
+                <aside class="sidebar-area">
+                    <div class="sidebar-block recent-posts">
+                        <h4>Recent Posts</h4>
+                        <ul>
+                            <li><a href="blog-post-detail.html#post2">Breaking the Stigma: Youth Mental Health</a></li>
+                            <li><a href="blog-post-detail.html#post3">Digital Skills: A Gateway to Opportunity</a></li>
+                            <li><a href="#">The Power of Mentorship in Rural Areas</a></li>
+                            <li><a href="#">Sustainable Agriculture for Youth</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block categories">
+                        <h4>Categories</h4>
+                        <ul>
+                            <li><a href="#">Leadership Development</a> (5)</li>
+                            <li><a href="#">Digital Literacy</a> (3)</li>
+                            <li><a href="#">Health & Wellness</a> (4)</li>
+                            <li><a href="#">Entrepreneurship</a> (2)</li>
+                            <li><a href="#">Environment</a> (1)</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block cta-sidebar">
+                        <h4>Share your Thoughts</h4>
+                        <p>Your research can change the world.</p>
+                        <a href="blog-post-detail.html" class="btn btn-primary btn-small">Write an Article</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Related Posts Section (Optional) -->
+        <section class="related-posts-section section-padding">
+            <div class="container">
+                <h2 class="section-title">Related Stories</h2>
+                <div class="blog-posts-grid">
+                    <!-- Blog Post Card 1 (Duplicate from homepage, but link to other posts) -->
+                    <div class="blog-post-card">
+                        <div class="blog-post-thumbnail">
+                            <img src="images/rtr.jpg" alt="Blog Post Image 2">
+                        </div>
+                        <div class="blog-post-info">
+                            <h3>Breaking the Stigma: Youth Mental Health</h3>
+                            <div class="blog-post-meta">
+                                <span><i class="fas fa-user"></i> By Sarah N. (Youth)</span>
+                                <span><i class="fas fa-calendar-alt"></i> July 10, 2025</span>
+                            </div>
+                            <p>A personal reflection on the importance of mental health awareness among young people in our communities.</p>
+                            <a href="blog-post-detail.html#post2" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Blog Post Card 2 -->
+                    <div class="blog-post-card">
+                        <div class="blog-post-thumbnail">
+                            <img src="images/frd.jpg" alt="Blog Post Image 3">
+                        </div>
+                        <div class="blog-post-info">
+                            <h3>Digital Skills: A Gateway to Opportunity</h3>
+                            <div class="blog-post-meta">
+                                <span><i class="fas fa-user"></i> By John D.</span>
+                                <span><i class="fas fa-calendar-alt"></i> July 01, 2025</span>
+                            </div>
+                            <p>How equipping youth with digital literacy is crucial for their future success in a rapidly evolving world.</p>
+                            <a href="blog-post-detail.html#post3" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Add more related posts here -->
+                </div>
+            </div>
+        </section>
+    </main>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-col about-col">
+                <a href="index.html" class="logo" style="font-size: 1.8em; margin-bottom: 15px;">
+                    <img src="https://placehold.co/40x40/6F2DBD/FFFFFF?text=YCBF" alt="YCBF Uganda Logo" style="filter: invert(1);">
+                    YCBF Uganda
+                </a>
+                <p>Empowering Uganda's youth with skills, knowledge, and hope for tomorrow. We build a brighter future, one young person at a time.</p>
+                <div class="footer-social-links">
+                    <a href="https://facebook.com/YCBFuganda" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/YCBFuganda" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/YCBFuganda" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/256770123456" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="join.html">Join Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Plot 123, Example Rd, Kampala, UG</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+256770123456">+256 770 123 456</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@YCBFuganda.org">info@YCBFuganda.org</a></p>
+            </div>
+            <div class="footer-col footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Stay updated with our latest news and events!</p>
+                <form action="#" method="POST">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom-text">
+            <p>&copy; 2025 The Youth Capacity Trainers Forum – Uganda. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+   <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+    // ==============================================
+    // --- Hamburger Menu Toggle ---
+    // Controls the opening and closing of the mobile navigation overlay.
+    // ==============================================
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    // Assuming your mobile navigation overlay has the ID 'mobileOverlayNav'
+    const mobileNavOverlay = document.getElementById('mobileOverlayNav');
+    const closeNavBtn = document.querySelector('#mobileOverlayNav .closebtn'); // Selector for the close button inside overlay
+    const body = document.body;
+
+    if (hamburgerMenu && mobileNavOverlay && closeNavBtn) {
+        // Open mobile navigation
+        hamburgerMenu.addEventListener('click', function() {
+            mobileNavOverlay.style.width = '100%'; // Make overlay visible
+            body.classList.add('no-scroll'); // Prevent background scroll
+        });
+
+        // Close mobile navigation
+        closeNavBtn.addEventListener('click', function() {
+            mobileNavOverlay.style.width = '0%'; // Hide overlay
+            body.classList.remove('no-scroll'); // Re-enable background scroll
+        });
+
+        // Close mobile nav when a link inside it is clicked
+        // This allows the default link behavior (page load) to happen AFTER closing the menu
+        mobileNavOverlay.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNavOverlay.style.width = '0%';
+                body.classList.remove('no-scroll');
+                // No e.preventDefault() here, so the link will navigate normally
+            });
+        });
+    }
+
+    // ==============================================
+    // --- Scroll-triggered Animations (Generic) ---
+    // Adds 'in-view' class to elements with 'animate-on-scroll' when visible.
+    // ==============================================
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    const animationObserverOptions = {
+        root: null, // relative to the viewport
+        rootMargin: '0px',
+        threshold: 0.1 // When 10% of the element is visible
+    };
+
+    const animationObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                obs.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, animationObserverOptions);
+
+    // Initial call for all elements on page load
+    animateElements.forEach(el => {
+        animationObserver.observe(el);
+    });
+
+
+    // ==============================================
+    // --- Impact Statistics Count-Up Animation ---
+    // Animates numbers and progress bars when the section comes into view.
+    // This runs once per page load when the section becomes visible.
+    // ==============================================
+    const impactStatsSection = document.getElementById('impact-stats');
+
+    if (impactStatsSection) {
+        const impactStatCards = impactStatsSection.querySelectorAll('.impact-stat-card');
+        let hasAnimatedImpactStats = false; // Flag to ensure animation runs only once per page load
+
+        const animateNumbersAndBars = () => {
+            impactStatCards.forEach(card => {
+                const numberElement = card.querySelector('.number.count-up');
+                const progressBar = card.querySelector('.progress-bar');
+                const percentageText = card.querySelector('.percentage-text');
+
+                if (!numberElement || !progressBar || !percentageText) {
+                    console.warn("Missing elements in impact stat card, skipping animation:", card);
+                    return;
+                }
+
+                const target = parseInt(numberElement.dataset.target);
+                const total = parseInt(numberElement.dataset.total);
+                const barPercentage = parseInt(progressBar.dataset.percentage);
+                const duration = 2000; // 2 seconds for animation
+                let startTime = null;
+
+                // Animate the number
+                const animateCount = (currentTime) => {
+                    if (!startTime) startTime = currentTime;
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    const currentValue = Math.floor(progress * target);
+                    numberElement.textContent = currentValue.toLocaleString(); // Format with commas
+
+                    // Update percentage text during count-up
+                    const currentCalculatedPercentage = Math.floor((currentValue / total) * 100);
+                    percentageText.textContent = `${currentCalculatedPercentage}% of Target`;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animateCount);
+                    } else {
+                        // Ensure final value is exact target
+                        numberElement.textContent = target.toLocaleString();
+                        // Ensure final percentage is exact data-percentage
+                        percentageText.textContent = `${barPercentage}% of Target`;
+                    }
+                };
+                requestAnimationFrame(animateCount);
+
+                // Animate the progress bar
+                progressBar.style.width = `${barPercentage}%`; // Trigger CSS transition
+            });
+        };
+
+        // Use Intersection Observer to trigger animation when section is in view
+        const impactStatsObserverOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5 // Trigger when 50% of the section is visible
+        };
+
+        const impactStatsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimatedImpactStats) {
+                    animateNumbersAndBars(); // Call the combined animation function
+                    hasAnimatedImpactStats = true; // Set flag to true after animation
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, impactStatsObserverOptions);
+
+        impactStatsObserver.observe(impactStatsSection);
+    }
+
+    // ==============================================
+    // --- Footer Current Year ---
+    // Dynamically updates the year in the footer.
+    // ==============================================
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
+
+}); // End of DOMContentLoaded
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Section Test - YCBF Uganda</title>
+
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- EMBEDDED CSS FOR THIS SECTION ONLY -->
+    <style>
+        /* Define your primary and secondary colors here, as they are used in the section */
+        :root {
+            --primary-color: #6F2DBD; /* Purple */
+            --secondary-color: #27AE60; /* Green */
+            --purple-main: #6F2DBD; /* Your main purple */
+            --green-main: #27AE60; /* Your main green */
+            --green-light: #2ecc71; /* Lighter green for hover */
+            --black-text: #333333;
+            --medium-grey-text: #666666;
+            --light-grey-text: #999999;
+            --white-text: #ffffff;
+            --light-grey-bg: #f8f8f8;
+            --border-color: #e0e0e0;
+            --red-heart: #e74c3c; /* Red for liked hearts */
+
+            /* Section Padding Variables (Adjust if needed) */
+            --section-padding-desktop: 80px 0;
+            --section-padding-tablet: 60px 0;
+            --section-padding-mobile: 40px 0;
+
+            /* Font Family (from Google Fonts) */
+            --primary-font: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--primary-font);
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5; /* A light background for testing */
+            line-height: 1.6;
+            color: var(--black-text);
+        }
+
+        /* Basic Container for the section */
+        .container {
+            max-width: 1200px; /* Adjust as per your global container max-width */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px; /* Add some horizontal padding to container */
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        /* Section Titles and Descriptions */
+        .section-title {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            font-size: 1.1em;
+            color: var(--medium-grey-text);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+
+        /* ============================================== */
+        /* --- Project Detail Sections (Repeatable Template) --- */
+        /* ============================================== */
+        .project-detail-section {
+            padding: var(--section-padding-desktop);
+            background-color: var(--light-grey-bg); /* Example background */
+            overflow: hidden; /* Crucial: Prevents content from breaking out */
+        }
+
+        .project-detail-section:nth-of-type(odd) { /* For alternating background colors if you copy it */
+            background-color: var(--white-text);
+        }
+
+
+        /* --- Main Content Wrapper for Project Text & Gallery --- */
+        .project-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal columns for gallery and text */
+            gap: 40px; /* Space between the two main blocks */
+            align-items: start; /* Align content to the top of the grid cells */
+        }
+
+        /* --- Specific layout for "Photos First" --- */
+        .project-content-wrapper.photos-first {
+            grid-template-areas: "gallery text"; /* Define explicit areas for photos first */
+            grid-template-columns: 1fr 1fr; /* Re-declare columns for clarity with areas */
+        }
+        .project-content-wrapper.photos-first .project-gallery-block {
+            grid-area: gallery; /* Assign gallery to 'gallery' area */
+        }
+        .project-content-wrapper.photos-first .project-text-block {
+            grid-area: text; /* Assign text to 'text' area */
+        }
+
+
+        /* --- Project Text Block Styling --- */
+        .project-text-block {
+            padding: 30px; /* Generous inner padding */
+            background-color: var(--white-text); /* Solid background */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            width: 100%; /* Ensure it takes full width of its grid cell */
+            box-sizing: border-box; /* Include padding in width calculation */
+            margin: 0; /* Crucial: Reset all margins */
+        }
+
+        .project-text-block h3 {
+            color: var(--purple-main);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .project-text-block p {
+            color: var(--medium-grey-text);
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .project-text-block ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .project-text-block ul li {
+            color: var(--black-text);
+            font-size: 1em;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .project-text-block ul li::before {
+            content: '\2022'; /* Bullet point */
+            color: var(--green-main); /* Green bullet */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+        }
+
+
+        /* --- Project Gallery Block Styling --- */
+        .project-gallery-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 columns for images within the gallery block */
+            gap: 15px; /* Space between individual gallery images */
+            padding: 15px; /* Padding inside the gallery block container */
+            background-color: var(--white-text); /* Solid background */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            width: 100%; /* Ensure it takes full width of its grid cell */
+            box-sizing: border-box; /* Include padding in width calculation */
+            margin: 0; /* Crucial: Reset all margins */
+        }
+
+        .project-gallery-block .gallery-item {
+            background-color: var(--light-grey-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            position: relative; /* Needed for absolute positioning of overlay/heart */
+        }
+
+        .project-gallery-block .gallery-item img {
+            width: 100%;
+            height: 180px; /* Fixed height for gallery images for consistency */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            display: block;
+        }
+
+        .project-gallery-block .gallery-item .photo-caption {
+            padding: 10px;
+            font-size: 0.85em;
+            color: var(--medium-grey-text);
+            text-align: center;
+            background-color: var(--white-text);
+            flex-shrink: 0; /* Prevent caption from shrinking */
+        }
+
+        /* Photo Overlay and Heart Icon Styles */
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover .photo-overlay {
+            opacity: 1; /* Show overlay on hover */
+        }
+
+        .like-icon {
+            font-size: 2.5em; /* Large heart icon */
+            color: var(--white-text); /* Default white color */
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Subtle shadow for visibility */
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .like-icon:hover {
+            color: var(--green-main); /* Green on hover */
+            transform: scale(1.1);
+        }
+
+        .like-icon.liked {
+            color: var(--red-heart); /* Red when liked */
+            transform: scale(1.1);
+        }
+
+        /* --- Buttons (Basic styles, assume global .btn exists) --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white-text);
+            border-color: var(--primary-color);
+        }
+        .btn-primary:hover {
+            background-color: #5a24a5; /* Darker primary */
+            border-color: #5a24a5;
+        }
+
+        .btn-small {
+            padding: 8px 18px;
+            font-size: 0.9em;
+        }
+
+
+        /* ============================================== */
+        /* --- Responsive Design (Media Queries) --- */
+        /* ============================================== */
+
+        @media (max-width: 992px) {
+            .project-detail-section {
+                padding: var(--section-padding-tablet);
+            }
+            .project-detail-section .section-title {
+                font-size: 2.2em;
+                margin-bottom: 40px;
+            }
+            .project-detail-section .section-description {
+                font-size: 1em;
+                margin-bottom: 40px;
+            }
+
+            /* Project Content Wrapper (Tablet/Smaller Desktop) */
+            .project-content-wrapper {
+                grid-template-columns: 1fr; /* Stack text and gallery */
+                gap: 40px;
+            }
+            /* Ensure photos come first on mobile (order change) */
+            .project-content-wrapper.photos-first {
+                grid-template-areas: unset; /* Reset grid areas as we're stacking */
+            }
+            .project-content-wrapper.photos-first .project-gallery-block {
+                order: 0; /* Gallery comes first */
+            }
+            .project-content-wrapper.photos-first .project-text-block {
+                order: 1; /* Text comes second */
+            }
+
+            /* Project Text Block */
+            .project-text-block {
+                padding: 25px; /* Adjust padding for tablet */
+            }
+            .project-text-block h3 {
+                font-size: 1.6em;
+            }
+            .project-text-block p {
+                font-size: 1em;
+            }
+            .project-text-block ul li {
+                font-size: 0.95em;
+            }
+
+            /* Project Gallery Block */
+            .project-gallery-block {
+                padding: 10px;
+                gap: 10px;
+            }
+            .project-gallery-block .gallery-item img {
+                height: 150px; /* Adjust height for mobile gallery */
+            }
+            .project-gallery-block .gallery-item .photo-caption {
+                font-size: 0.8em;
+                padding: 8px;
+            }
+            .like-icon {
+                font-size: 2em; /* Smaller heart on mobile */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-detail-section {
+                padding: var(--section-padding-mobile);
+            }
+            .project-detail-section .section-title {
+                font-size: 2em;
+            }
+            .project-detail-section .section-description {
+                font-size: 0.95em;
+            }
+
+            /* Project Text Block */
+            .project-text-block h3 {
+                font-size: 1.4em;
+            }
+            .project-text-block p {
+                font-size: 0.95em;
+            }
+            .project-text-block ul li {
+                font-size: 0.9em;
+            }
+
+            /* Project Gallery Block */
+            .project-gallery-block .gallery-item img {
+                height: 120px;
+            }
+            .project-gallery-block .gallery-item .photo-caption {
+                font-size: 0.75em;
+            }
+            .like-icon {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-detail-section .section-title {
+                font-size: 1.8em;
+            }
+            .project-detail-section .section-description {
+                font-size: 0.9em;
+            }
+
+            /* Project Text Block */
+            .project-text-block {
+                padding: 15px;
+            }
+            .project-text-block h3 {
+                font-size: 1.2em;
+            }
+            .project-text-block p {
+                font-size: 0.9em;
+            }
+
+            /* Project Gallery Block */
+            .project-gallery-block {
+                grid-template-columns: 1fr; /* Stack images on very small screens */
+                padding: 8px;
+                gap: 8px;
+            }
+            .project-gallery-block .gallery-item img {
+                height: 180px; /* Make single column images a bit taller when stacked */
+            }
+            .project-gallery-block .gallery-item .photo-caption {
+                font-size: 0.7em;
+            }
+            .like-icon {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Project Section: Digital Literacy Hubs - Photos First -->
+    <section id="project-digital-literacy-hubs" class="section-padding project-detail-section bg-light-grey">
+        <div class="container">
+            <h2 class="section-title">Digital Literacy Hubs: Bridging the Divide</h2>
+            <p class="section-description text-center">Empowering youth with essential computer skills and digital knowledge for a brighter future.</p>
+
+            <div class="project-content-wrapper photos-first">
+                <!-- Project Photo Gallery Block -->
+                <div class="project-gallery-block">
+                    <div class="gallery-item">
+                        <img src="https://placehold.co/400x250/27AE60/FFFFFF?text=Digital+1" alt="Youth learning on computers">
+                        <div class="photo-overlay">
+                            <i class="fas fa-heart like-icon" data-project-id="digital-literacy-hubs-photo1"></i>
+                        </div>
+                        <p class="photo-caption">Young people eagerly learning computer basics.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://placehold.co/400x250/27AE60/FFFFFF?text=Digital+2" alt="New computer lab setup">
+                        <div class="photo-overlay">
+                            <i class="fas fa-heart like-icon" data-project-id="digital-literacy-hubs-photo2"></i>
+                        </div>
+                        <p class="photo-caption">A newly established digital literacy hub in a rural school.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://placehold.co/400x250/27AE60/FFFFFF?text=Digital+3" alt="Trainer guiding students">
+                        <div class="photo-overlay">
+                            <i class="fas fa-heart like-icon" data-project-id="digital-literacy-hubs-photo3"></i>
+                        </div>
+                        <p class="photo-caption">Our dedicated trainers providing hands-on guidance.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://placehold.co/400x250/27AE60/FFFFFF?text=Digital+4" alt="Student using tablet">
+                        <div class="photo-overlay">
+                            <i class="fas fa-heart like-icon" data-project-id="digital-literacy-hubs-photo4"></i>
+                        </div>
+                        <p class="photo-caption">A student exploring digital learning on a tablet.</p>
+                    </div>
+                </div>
+
+                <!-- Project Text Block -->
+                <div class="project-text-block">
+                    <h3>The Challenge:</h3>
+                    <p>In many rural and underserved areas of Uganda, access to modern technology and digital education is severely limited. This creates a significant digital divide, preventing young people from accessing online learning resources, developing crucial job skills, and participating fully in the digital economy.</p>
+                    <h3>Our Solution:</h3>
+                    <p>The Digital Literacy Hubs project establishes and equips dedicated computer labs in schools and community centers. We provide computers, internet access, and comprehensive training programs covering basic computer operation, internet safety, online research, and even introductory coding. Our goal is to ensure every young Ugandan has the opportunity to become digitally fluent.</p>
+                    <h3>Key Objectives:</h3>
+                    <ul>
+                        <li>To establish 20 new digital literacy hubs across 10 districts.</li>
+                        <li>To train over 10,000 youth annually in foundational digital skills.</li>
+                        <li>To foster a generation of digitally empowered innovators and learners.</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-small" style="margin-top: 20px;">Support This Project</a>
+                </div>
+            </div>
+        </section>
+
+    <!-- EMBEDDED JAVASCRIPT FOR THIS SECTION ONLY -->
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+    // ==============================================
+    // --- Hamburger Menu Toggle ---
+    // Controls the opening and closing of the mobile navigation overlay.
+    // ==============================================
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    // Assuming your mobile navigation overlay has the ID 'mobileOverlayNav'
+    const mobileNavOverlay = document.getElementById('mobileOverlayNav');
+    const closeNavBtn = document.querySelector('#mobileOverlayNav .closebtn'); // Selector for the close button inside overlay
+    const body = document.body;
+
+    if (hamburgerMenu && mobileNavOverlay && closeNavBtn) {
+        // Open mobile navigation
+        hamburgerMenu.addEventListener('click', function() {
+            mobileNavOverlay.style.width = '100%'; // Make overlay visible
+            body.classList.add('no-scroll'); // Prevent background scroll
+        });
+
+        // Close mobile navigation
+        closeNavBtn.addEventListener('click', function() {
+            mobileNavOverlay.style.width = '0%'; // Hide overlay
+            body.classList.remove('no-scroll'); // Re-enable background scroll
+        });
+
+        // Close mobile nav when a link inside it is clicked
+        // This allows the default link behavior (page load) to happen AFTER closing the menu
+        mobileNavOverlay.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNavOverlay.style.width = '0%';
+                body.classList.remove('no-scroll');
+                // No e.preventDefault() here, so the link will navigate normally
+            });
+        });
+    }
+
+    // ==============================================
+    // --- Scroll-triggered Animations (Generic) ---
+    // Adds 'in-view' class to elements with 'animate-on-scroll' when visible.
+    // ==============================================
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    const animationObserverOptions = {
+        root: null, // relative to the viewport
+        rootMargin: '0px',
+        threshold: 0.1 // When 10% of the element is visible
+    };
+
+    const animationObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                obs.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, animationObserverOptions);
+
+    // Initial call for all elements on page load
+    animateElements.forEach(el => {
+        animationObserver.observe(el);
+    });
+
+
+    // ==============================================
+    // --- Impact Statistics Count-Up Animation ---
+    // Animates numbers and progress bars when the section comes into view.
+    // This runs once per page load when the section becomes visible.
+    // ==============================================
+    const impactStatsSection = document.getElementById('impact-stats');
+
+    if (impactStatsSection) {
+        const impactStatCards = impactStatsSection.querySelectorAll('.impact-stat-card');
+        let hasAnimatedImpactStats = false; // Flag to ensure animation runs only once per page load
+
+        const animateNumbersAndBars = () => {
+            impactStatCards.forEach(card => {
+                const numberElement = card.querySelector('.number.count-up');
+                const progressBar = card.querySelector('.progress-bar');
+                const percentageText = card.querySelector('.percentage-text');
+
+                if (!numberElement || !progressBar || !percentageText) {
+                    console.warn("Missing elements in impact stat card, skipping animation:", card);
+                    return;
+                }
+
+                const target = parseInt(numberElement.dataset.target);
+                const total = parseInt(numberElement.dataset.total);
+                const barPercentage = parseInt(progressBar.dataset.percentage);
+                const duration = 2000; // 2 seconds for animation
+                let startTime = null;
+
+                // Animate the number
+                const animateCount = (currentTime) => {
+                    if (!startTime) startTime = currentTime;
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    const currentValue = Math.floor(progress * target);
+                    numberElement.textContent = currentValue.toLocaleString(); // Format with commas
+
+                    // Update percentage text during count-up
+                    const currentCalculatedPercentage = Math.floor((currentValue / total) * 100);
+                    percentageText.textContent = `${currentCalculatedPercentage}% of Target`;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animateCount);
+                    } else {
+                        // Ensure final value is exact target
+                        numberElement.textContent = target.toLocaleString();
+                        // Ensure final percentage is exact data-percentage
+                        percentageText.textContent = `${barPercentage}% of Target`;
+                    }
+                };
+                requestAnimationFrame(animateCount);
+
+                // Animate the progress bar
+                progressBar.style.width = `${barPercentage}%`; // Trigger CSS transition
+            });
+        };
+
+        // Use Intersection Observer to trigger animation when section is in view
+        const impactStatsObserverOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5 // Trigger when 50% of the section is visible
+        };
+
+        const impactStatsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimatedImpactStats) {
+                    animateNumbersAndBars(); // Call the combined animation function
+                    hasAnimatedImpactStats = true; // Set flag to true after animation
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, impactStatsObserverOptions);
+
+        impactStatsObserver.observe(impactStatsSection);
+    }
+
+    // ==============================================
+    // --- Footer Current Year ---
+    // Dynamically updates the year in the footer.
+    // ==============================================
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
+
+}); // End of DOMContentLoaded
+</script>
+    
+</body>
+</html>

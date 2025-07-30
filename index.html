@@ -131,6 +131,7 @@
             position: relative;
             padding-bottom: 15px;
             color: var(--purple-main);
+            padding-top: 80px;
         }
 
         .section-title::after {
@@ -371,105 +372,675 @@
             margin-bottom: 0;
         }
 
-        /* --- Testimonials Section --- */
-        .testimonials-section {
-            background-color: var(--light-grey-bg);
-            padding-bottom: 100px;
-        }
+        /* ============================================== */
+/* --- Testimonials Section (Scrollable Slider - ISOLATED & REVISED) --- */
+/* Add this as a NEW BLOCK in your css/style.css file.               */
+/* Do NOT replace existing sections.                                 */
+/* ============================================== */
 
-        .testimonials-slider {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            gap: 30px;
-            padding-bottom: 20px;
-            margin-top: 50px;
-            justify-content: flex-start;
-        }
+.testimonials-section {
+    /* Background color from HTML inline style, or define here if you remove it from HTML */
+    /* background-color: var(--light-grey-bg); */ /* Uncomment if you remove inline style */
+    overflow: hidden; /* Prevent any overflow issues */
+}
 
-        .testimonial-card {
-            flex: 0 0 380px; /* Fixed width for carousel items */
-            scroll-snap-align: start;
-            background-color: var(--white-text);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            text-align: left;
-            position: relative;
-            border-top: 5px solid var(--purple-main);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .testimonial-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-        }
+.testimonials-section .section-title {
+    /* Assuming this is styled globally, no specific changes here */
+    /* If your section title is broken, you might need to check global .section-title styles */
+}
 
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: var(--medium-grey-text);
-            font-size: 0.95em;
-        }
+.testimonials-slider {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snaps to cards when scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    gap: 30px; /* Space between cards */
+    padding-bottom: 20px; /* Space for scrollbar */
+    margin-top: 50px;
+    justify-content: flex-start; /* Align cards to the start of the container */
+    padding-left: 20px; /* Add padding to the left so first card isn't flush */
+    padding-right: 20px; /* Add padding to the right for consistent spacing */
+    box-sizing: border-box; /* Include padding in width */
+    /* Hide scrollbar for aesthetics, but allow scrolling */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
 
-        .testimonial-card .author-info {
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
-        }
+.testimonials-slider::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
 
-        .testimonial-card .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-            border: 2px solid var(--green-main);
-        }
+.testimonials-section .testimonial-card { /* Highly specific selector */
+    /* Make cards slightly wider and ensure they are responsive */
+    flex: 0 0 calc(33.333% - 20px); /* Show 3 cards on desktop with gaps (3 cards, 2 gaps of 30px = 60px total gap) */
+    min-width: 340px; /* Increased minimum width for better text fit */
+    scroll-snap-align: start;
+    background-color: var(--white-text);
+    padding: 30px; /* Generous padding inside the card */
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: left;
+    position: relative;
+    border-top: 5px solid var(--purple-main);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Use flexbox for content inside card */
+    flex-direction: column;
+    justify-content: space-between; /* Pushes content to top/bottom */
+    align-items: flex-start; /* Align text to the left */
+    min-height: 320px; /* Ensure consistent minimum height for cards */
+    box-sizing: border-box; /* Crucial: padding included in width/height */
+}
 
-        .testimonial-card .author-details h4 {
-            font-size: 1.2em;
-            margin: 0;
-            color: var(--dark-text);
-        }
+.testimonials-section .testimonial-card:hover { /* Highly specific selector */
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
 
-        .testimonial-card .author-details p {
-            margin: 0;
-            font-size: 0.9em;
-            color: var(--medium-grey-text);
-        }
+.testimonials-section .testimonial-card p { /* Highly specific selector for main quote text */
+    font-style: italic;
+    margin-bottom: 20px;
+    color: var(--medium-grey-text);
+    font-size: 0.95em;
+    line-height: 1.6;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Limit to 5 lines for quotes */
+    -webkit-box-orient: vertical;
+}
 
-        /* --- Video Section --- */
-        .video-section {
-            background-color: var(--blue-light);
-            padding: 80px 0;
-            text-align: center;
-        }
+.testimonials-section .testimonial-card .author-info { /* Highly specific selector */
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    width: 100%;
+}
 
-        .video-section h2 {
-            color: var(--white-text);
-            margin-bottom: 40px;
-        }
+.testimonials-section .testimonial-card .author-avatar { /* Highly specific selector */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid var(--green-main);
+    flex-shrink: 0;
+}
 
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            max-width: 900px;
-            margin: 0 auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
+.testimonials-section .testimonial-card .author-details { /* Highly specific selector */
+    flex-grow: 1;
+    overflow: hidden;
+}
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+.testimonials-section .testimonial-card .author-details h4 { /* Highly specific selector */
+    font-size: 1.2em;
+    margin: 0;
+    color: var(--dark-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.testimonials-section .testimonial-card .author-details p { /* Highly specific selector */
+    margin: 0;
+    font-size: 0.9em;
+    color: var(--medium-grey-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- See More Card Styling (Highly Specific) --- */
+.testimonials-section .testimonial-card.see-more-card { /* Highly specific selector */
+    background: linear-gradient(135deg, var(--purple-main), var(--green-main));
+    color: var(--white-text);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 320px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border: none;
+    padding: 30px;
+    flex: 0 0 calc(33.333% - 20px);
+    min-width: 340px;
+}
+
+.testimonials-section .see-more-card h3 { /* Highly specific selector */
+    color: var(--white-text);
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.testimonials-section .see-more-card p { /* Highly specific selector */
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    -webkit-line-clamp: unset;
+    white-space: normal;
+}
+
+.testimonials-section .see-more-card .btn-secondary { /* Highly specific selector */
+    background-color: var(--white-text);
+    color: var(--purple-main);
+    border: 2px solid var(--white-text);
+    font-weight: 700;
+}
+
+.testimonials-section .see-more-card .btn-secondary:hover { /* Highly specific selector */
+    background-color: transparent;
+    color: var(--white-text);
+    border-color: var(--white-text);
+    transform: translateY(-2px);
+}
+
+
+/* In css/style.css, REPLACE your ENTIRE existing .testimonials-section block with this */
+
+/* ============================================== */
+/* --- Testimonials Section (Static Grid - REVISED) --- */
+/* ============================================== */
+.testimonials-section {
+    padding: var(--section-padding-desktop);
+    background-color: var(--white-text); /* Ensure a solid background */
+    overflow: hidden; /* Prevent any overflow issues */
+}
+
+.testimonials-section .section-title {
+    margin-bottom: 60px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.testimonials-grid { /* New class for the grid container */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Flexible 3-column layout */
+    gap: 30px; /* Space between testimonial cards */
+    margin-top: 50px;
+    justify-content: center; /* Center cards if they don't fill the row */
+    max-width: 1100px; /* Limit the max width of the grid for better aesthetics */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.testimonials-section .testimonial-card { /* Highly specific selector */
+    background-color: var(--light-grey-bg); /* Changed background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    padding: 30px; /* Generous padding inside the card */
+    text-align: left;
+    position: relative;
+    border-top: 5px solid var(--green-main); /* Accent border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Use flexbox for content inside card */
+    flex-direction: column;
+    justify-content: space-between; /* Pushes content to top/bottom */
+    align-items: flex-start; /* Align text to the left */
+    min-height: 320px; /* Ensure consistent minimum height for cards */
+    box-sizing: border-box; /* Crucial: padding included in width/height */
+}
+
+.testimonials-section .testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.testimonials-section .testimonial-card p { /* Highly specific selector for main quote text */
+    font-style: italic;
+    margin-bottom: 20px;
+    color: var(--medium-grey-text);
+    font-size: 0.95em;
+    line-height: 1.6;
+    flex-grow: 1;
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+    display: -webkit-box; /* For multi-line ellipsis */
+    -webkit-line-clamp: 5; /* Limit to 5 lines for quotes */
+    -webkit-box-orient: vertical;
+}
+
+.testimonials-section .testimonial-card .author-info { /* Highly specific selector */
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    width: 100%;
+}
+
+.testimonials-section .testimonial-card .author-avatar { /* Highly specific selector */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid var(--purple-main); /* Changed border color for contrast */
+    flex-shrink: 0;
+}
+
+.testimonials-section .testimonial-card .author-details { /* Highly specific selector */
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.testimonials-section .testimonial-card .author-details h4 { /* Highly specific selector */
+    font-size: 1.2em;
+    margin: 0;
+    color: var(--dark-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.testimonials-section .testimonial-card .author-details p { /* Highly specific selector */
+    margin: 0;
+    font-size: 0.9em;
+    color: var(--medium-grey-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* "Read More Stories" Button Centering */
+.view-all-testimonials-btn {
+    display: block; /* Make it a block element */
+    margin: 0 auto; /* Center it horizontally */
+    width: fit-content; /* Shrink to content width */
+    margin-top: 60px !important; /* Ensure margin top is applied (adjust as needed) */
+}
+
+
+/* ============================================== */
+/* --- Responsive Design (Media Queries) for Testimonials Grid --- */
+/* ============================================== */
+
+@media (max-width: 992px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 columns on tablet */
+        gap: 25px;
+        max-width: 600px; /* Adjust max-width for tablet */
+    }
+    .testimonials-section .testimonial-card {
+        padding: 25px;
+        min-height: 300px;
+    }
+    .testimonials-section .testimonial-card p {
+        font-size: 0.9em;
+        -webkit-line-clamp: 4;
+    }
+    .testimonials-section .testimonial-card .author-avatar {
+        width: 50px;
+        height: 50px;
+    }
+    .testimonials-section .testimonial-card .author-details h4 {
+        font-size: 1em;
+    }
+    .testimonials-section .testimonial-card .author-details p {
+        font-size: 0.85em;
+    }
+    .view-all-testimonials-btn {
+        margin-top: 40px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        max-width: 350px; /* Limit width for single column */
+        margin-left: auto;
+        margin-right: auto;
+        gap: 20px;
+    }
+    .testimonials-section .testimonial-card {
+        padding: 20px;
+        min-height: 280px;
+    }
+    .testimonials-section .testimonial-card p {
+        font-size: 0.85em;
+        margin-bottom: 15px;
+        -webkit-line-clamp: 6;
+    }
+    .testimonials-section .testimonial-card .author-avatar {
+        width: 45px;
+        height: 45px;
+        margin-right: 10px;
+    }
+    .testimonials-section .testimonial-card .author-details h4 {
+        font-size: 0.95em;
+    }
+    .testimonials-section .testimonial-card .author-details p {
+        font-size: 0.8em;
+    }
+    .view-all-testimonials-btn {
+        margin-top: 30px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-section .testimonial-card {
+        padding: 15px;
+        min-height: 250px;
+    }
+    .testimonials-section .testimonial-card p {
+        font-size: 0.8em;
+        -webkit-line-clamp: 7;
+    }
+    .testimonials-section .testimonial-card .author-avatar {
+        width: 40px;
+        height: 40px;
+    }
+    .testimonials-section .testimonial-card .author-details h4 {
+        font-size: 0.9em;
+    }
+    .testimonials-section .testimonial-card .author-details p {
+        font-size: 0.75em;
+    }
+    .view-all-testimonials-btn {
+        margin-top: 20px !important;
+    }
+}
+
+        /* In css/style.css, REPLACE your ENTIRE existing .video-section and .blog-posts-home blocks with this */
+
+/* In css/style.css, REPLACE your ENTIRE existing .video-section block with this */
+
+/* ============================================== */
+/* --- Video Section (FINAL REVISION for Title & Desktop-Only 16:9) --- */
+/* ============================================== */
+.video-section {
+    padding: var(--section-padding-desktop);
+    background-color: var(--white-text); /* Changed to white for better title contrast */
+    /* If you want a background color, ensure it contrasts with the title */
+    overflow: hidden; /* Prevent any overflow issues */
+    margin-top: 80px; /* Space from section above */
+}
+
+.video-section .section-title {
+    color: var(--primary-color); /* CRUCIAL: Set a strong, visible color like your purple */
+    margin-bottom: 50px;
+    text-align: center;
+
+}
+
+.video-responsive {
+    position: relative;
+    height: auto; /* Default to auto height for flexibility */
+    overflow: hidden;
+    max-width: 900px; /* Limit max width for large screens */
+    margin: 0 auto; /* Center the video container */
+    background-color: #000; /* Black background for video edges */
+    border-radius: 10px; /* Rounded corners for the video container */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow for video */
+}
+
+.video-responsive iframe {
+    width: 100%; /* Fill the container's width */
+    height: 4500px; /* Default height for desktop, will be overridden by aspect ratio */
+    border: 0;
+    display: block; /* Remove any inline spacing issues */
+    
+}
+
+
+/* ============================================== */
+/* --- Responsive Design (Media Queries) for Video Section --- */
+/* ============================================== */
+
+@media (min-width: 769px) { /* Apply 16:9 aspect ratio ONLY for desktop/larger tablets */
+    .video-responsive {
+        padding-bottom: 56.25%; /* 16:9 aspect ratio (height / width = 9 / 16 = 0.5625) */
+        height: 0; /* Important for the padding-bottom trick */
+    }
+    .video-responsive iframe {
+        position: absolute; /* Occupy the responsive container */
+        top: 0;
+        left: 0;
+        height: 100%; /* Fill the container's height */
+    }
+}
+
+@media (max-width: 992px) {
+    .video-section {
+        margin-top: 60px; /* Adjust margin for tablet */
+    }
+    .video-section .section-title {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+    .video-responsive {
+        max-width: 700px; /* Adjust max width for tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .video-section {
+        margin-top: 40px; /* Adjust margin for mobile */
+    }
+    .video-section .section-title {
+        font-size: 2em;
+    }
+    .video-responsive {
+        max-width: 100%; /* Allow full width on mobile */
+        border-radius: 0; /* Remove rounded corners on small screens */
+        padding-bottom: 0; /* Remove aspect ratio padding on mobile */
+        height: 250px; /* Set a fixed height for mobile video */
+    }
+    .video-responsive iframe {
+        position: static; /* Remove absolute positioning on mobile */
+        height: 100%; /* Fill the fixed height */
+    }
+}
+
+@media (max-width: 480px) {
+    .video-responsive {
+        height: 200px; /* Smaller fixed height for very small mobile */
+    }
+}
+
+/* ============================================== */
+/* --- Blog Posts Home Section (REVISED for 16:9 Thumbnails & Text Fit) --- */
+/* ============================================== */
+.blog-posts-home {
+    padding: var(--section-padding-desktop);
+    background-color: var(--white-text); /* Ensure a solid background */
+}
+
+.blog-posts-home .section-title {
+    margin-bottom: 60px;
+}
+
+.blog-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 columns on desktop */
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center; /* Center grid items if they don't fill the row */
+    max-width: 1100px; /* Limit width of the grid for better aesthetics */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-post-card {
+    background-color: var(--light-grey-bg);
+    border-radius: 10px;
+    overflow: hidden; /* Ensures image and content stay within bounds */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.blog-post-thumbnail { /* New wrapper for 16:9 image aspect ratio */
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    background-color: var(--border-color); /* Placeholder background */
+}
+
+.blog-post-thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    display: block;
+}
+
+.blog-post-info {
+    padding: 25px; /* Padding inside the card content area */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows info section to take available height */
+}
+
+.blog-post-info h3 {
+    font-size: 1.5em;
+    color: var(--purple-main);
+    margin-bottom: 10px;
+    line-height: 1.3;
+    overflow: hidden; /* For text overflow */
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit title to 2 lines */
+    -webkit-box-orient: vertical;
+}
+
+.blog-post-meta {
+    font-size: 0.85em;
+    color: var(--light-grey-text);
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap; /* Allow meta items to wrap */
+    gap: 10px; /* Space between meta items */
+}
+
+.blog-post-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.blog-post-meta i {
+    color: var(--green-main); /* Icon color */
+}
+
+.blog-post-info p {
+    font-size: 0.95em;
+    color: var(--medium-grey-text);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allow paragraph to take available height */
+    overflow: hidden; /* For text overflow */
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit paragraph to 3 lines */
+    -webkit-box-orient: vertical;
+}
+
+.blog-post-info .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--green-main);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin-top: auto; /* Pushes button to the bottom of the card */
+}
+
+.blog-post-info .read-more:hover {
+    color: var(--purple-main);
+    transform: translateX(5px);
+}
+
+
+/* ============================================== */
+/* --- Responsive Design (Media Queries) for Video & Blog Sections --- */
+/* ============================================== */
+
+@media (max-width: 992px) {
+    .video-section .section-title {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+    .video-responsive {
+        max-width: 700px; /* Adjust max width for tablet */
+    }
+
+    .blog-posts-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 columns on tablet */
+        gap: 25px;
+        max-width: 600px; /* Adjust max-width for tablet */
+    }
+    .blog-post-info {
+        padding: 20px;
+    }
+    .blog-post-info h3 {
+        font-size: 1.3em;
+        -webkit-line-clamp: 3; /* Adjust line clamp for tablet */
+    }
+    .blog-post-meta {
+        font-size: 0.8em;
+    }
+    .blog-post-info p {
+        font-size: 0.9em;
+        -webkit-line-clamp: 4; /* Adjust line clamp for tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .video-section .section-title {
+        font-size: 2em;
+    }
+    .video-responsive {
+        max-width: 100%; /* Allow full width on mobile */
+        border-radius: 0; /* Remove rounded corners on small screens */
+    }
+
+    .blog-posts-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        max-width: 350px; /* Limit width for single column */
+        margin-left: auto;
+        margin-right: auto;
+        gap: 20px;
+    }
+    .blog-post-info {
+        padding: 15px;
+    }
+    .blog-post-info h3 {
+        font-size: 1.2em;
+        -webkit-line-clamp: 4; /* Adjust line clamp for mobile */
+    }
+    .blog-post-meta {
+        font-size: 0.75em;
+    }
+    .blog-post-info p {
+        font-size: 0.85em;
+        -webkit-line-clamp: 5; /* Adjust line clamp for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-post-info {
+        padding: 10px;
+    }
+    .blog-post-info h3 {
+        font-size: 1.1em;
+        -webkit-line-clamp: 5;
+    }
+    .blog-post-info p {
+        font-size: 0.8em;
+        -webkit-line-clamp: 6;
+    }
+    .blog-post-meta {
+        font-size: 0.7em;
+    }
+}
 
         /* --- About Us Page --- */
         .about-us-hero {
@@ -1742,7 +2313,7 @@
             .icon-item .icon { font-size: 3em; }
             .icon-item h3 { font-size: 1.3em; }
 
-            .video-container { height: auto; padding-bottom: 75%; } /* Adjust for mobile video */
+            .video-container { height: auto; padding-bottom: 75%;  } /* Adjust for mobile video */
 
             .about-us-hero h1, .programs-hero h1, .impact-hero h1, .join-us-hero h1, .blog-hero h1, .donate-hero h1, .contact-hero h1 {
                 font-size: 2.5em;
@@ -1819,6 +2390,7 @@
     margin-bottom: 60px;
     position: relative;
     padding-bottom: 15px;
+    padding-top: 80px;
 }
 
 #wall-of-fame h2::after {
@@ -2117,75 +2689,138 @@
     }
 }
 
-/* --- See More Testimonial Card --- */
-.testimonials-slider {
-    /* Ensure the slider allows for the new card to be seen when scrolled */
-    scroll-padding-right: 30px; /* Add padding to make the last card fully visible */
-}
 
-.see-more-card {
-    background-color: var(--purple-main); /* Use your purple for this card */
-    color: var(--white-text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+
+/* ============================================== */
+/* --- Impact Statistics Section  */
+/* ============================================== */
+
+#impact-stats {
+    padding: var(--section-padding-desktop); /* Keep existing top/bottom padding */
+    padding-bottom: 120px; /* Increase this value to create more space below */
+    /* Or, if you want to use your variables for consistency, define a larger variable:
+       padding-bottom: var(--section-padding-large-bottom); */
+    background-color: var(--white-text);
+    overflow: hidden;
+}
+#impact-stats .section-title {
+    margin-bottom: 60px;
+    color: var(--primary-color); /* Ensure consistent color */
     text-align: center;
-    border-top: 5px solid var(--green-main); /* A contrasting color for the top border */
-    flex: 0 0 380px; /* Maintain the same width as other testimonial cards */
 }
 
-.see-more-card .see-more-content {
+.impact-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 columns on desktop */
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center; /* Center grid items if they don't fill the row */
+    max-width: 1200px; /* Limit width of the grid for better aesthetics */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.impact-stat-card {
+    background-color: var(--light-grey-bg);
+    border-radius: 10px;
     padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Distribute content vertically */
+    min-height: 220px; /* Ensure consistent card height */
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add hover transition */
 }
 
-.see-more-card h3 {
-    color: var(--white-text);
-    font-size: 1.8em;
-    margin-bottom: 15px;
+.impact-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.see-more-card p {
-    color: var(--light-grey-bg); /* Lighter text for readability on dark background */
-    margin-bottom: 25px;
-    font-style: normal; /* Override italic from other testimonial cards */
+.impact-stat-card .number {
+    font-size: 3.8em; /* Make numbers even larger */
+    font-weight: 800; /* Make numbers bolder */
+    color: var(--purple-main); /* Primary color for numbers */
+    margin-bottom: 10px;
+    line-height: 1; /* Prevent extra space above/below number */
+    display: block; /* Ensure it's a block element */
 }
 
-.see-more-card .btn {
-    /* Inherit button styles, but specify colors for this card */
-    background-color: var(--green-main);
-    color: var(--white-text);
-    padding: 12px 28px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1em;
-    border: none;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+.impact-stat-card p {
+    font-size: 1.1em;
+    color: var(--black-text);
+    margin-bottom: 20px;
+    font-weight: 500;
 }
 
-.see-more-card .btn:hover {
-    background-color: var(--green-light);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+.progress-bar-container {
+    width: 100%;
+    background-color: var(--border-color); /* Light grey background for the bar */
+    border-radius: 5px;
+    height: 8px; /* Height of the progress bar */
+    overflow: hidden; /* Ensure inner bar stays within bounds */
+    margin-bottom: 10px;
 }
 
-/* Responsive adjustments for impact stats */
+.progress-bar {
+    height: 100%;
+    width: 0%; /* Starts at 0, animated by JS */
+    background-color: var(--green-main); /* Green fill for progress */
+    border-radius: 5px;
+    transition: width 1.5s ease-out; /* Slower, smoother animation for width change */
+}
+
+.percentage-text {
+    font-size: 0.95em; /* Slightly larger percentage text */
+    color: var(--medium-grey-text);
+    font-weight: 600; /* Make percentage text bolder */
+}
+
+
+/* ============================================== */
+/* --- Responsive Design (Media Queries) for Impact Statistics --- */
+/* ============================================== */
+
+@media (max-width: 992px) {
+    .impact-stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 2 columns on tablet */
+        gap: 25px;
+    }
+    .impact-stat-card {
+        padding: 25px;
+        min-height: 200px;
+    }
+    .impact-stat-card .number {
+        font-size: 3.2em;
+    }
+    .impact-stat-card p {
+        font-size: 1em;
+    }
+}
+
 @media (max-width: 768px) {
+    .impact-stats-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        max-width: 350px; /* Limit width for single column */
+        margin-left: auto;
+        margin-right: auto;
+        gap: 20px;
+    }
     .impact-stat-card {
         padding: 20px;
         min-height: 180px;
     }
     .impact-stat-card .number {
-        font-size: 3em;
+        font-size: 2.8em;
     }
     .impact-stat-card p {
-        font-size: 1em;
+        font-size: 0.95em;
     }
     .progress-bar-container {
-        width: 90%;
+        height: 6px;
     }
     .percentage-text {
         font-size: 0.85em;
@@ -2202,12 +2837,6 @@
     }
     .impact-stat-card p {
         font-size: 0.9em;
-    }
-    .progress-bar-container {
-        width: 95%;
-    }
-    .percentage-text {
-        font-size: 0.8em;
     }
 }
 
@@ -2582,13 +3211,13 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="projects.html" class="active">Projects</a></li>
-                    <li><a href="mentors.html" class="active">Mentors</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="mentors.html">Mentors</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="programs.html">Programs</a></li>
                     <li><a href="impact.html">Impact</a></li>
                     <li><a href="join.html">Join Us</a></li>
-                    <li><a href="blog.html">Spotlight</a></li>
+                    <li><a href="spotlight.html">Spotlight</a></li>
                     <li><a href="donate.html">Donate</a></li>
                     <li><a href="opportunities.html">Opportunities</a></li>
                 </ul>
@@ -2722,28 +3351,32 @@
                 </div>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="clubs.html" class="learn-more-btn">See All Clubs</a>
-        </div>
+        <div style="text-align: center; margin-top: 30px; padding-bottom: 30px;">
+    <a href="clubs.html" class="btn btn-secondary">See All Clubs</a>
+</div>
     </div>
 </section>
 
 
+        <!-- Video Section -->
         <section class="video-section section-padding animate-on-scroll">
             <div class="container">
                 <h2 class="section-title">See Our Work in Action</h2>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=abcdefg" title="YCBF Uganda Fieldwork Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="video-responsive"> <!-- New wrapper for aspect ratio -->
+                    <iframe src="https://www.youtube.com/embed/S4olFd990E8" title="YCBF Uganda Fieldwork Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
 
+        <!-- Latest Insights & Stories Section -->
         <section class="blog-posts-home section-padding animate-on-scroll">
             <div class="container">
                 <h2 class="section-title">Latest Insights & Stories</h2>
                 <div class="blog-posts-grid">
                     <div class="blog-post-card">
-                        <img src="images/dd.jpg" alt="Blog Post Image 1">
+                        <div class="blog-post-thumbnail"> <!-- New wrapper for image aspect ratio -->
+                            <img src="images/dd.jpg" alt="Blog Post Image 1">
+                        </div>
                         <div class="blog-post-info">
                             <h3>Developing Tomorrow's Leaders</h3>
                             <div class="blog-post-meta">
@@ -2755,7 +3388,9 @@
                         </div>
                     </div>
                     <div class="blog-post-card">
-                        <img src="images/rtr.jpg" alt="Blog Post Image 2">
+                        <div class="blog-post-thumbnail"> <!-- New wrapper for image aspect ratio -->
+                            <img src="images/rtr.jpg" alt="Blog Post Image 2">
+                        </div>
                         <div class="blog-post-info">
                             <h3>Breaking the Stigma: Youth Mental Health</h3>
                             <div class="blog-post-meta">
@@ -2767,7 +3402,9 @@
                         </div>
                     </div>
                     <div class="blog-post-card">
-                        <img src="images/frd.jpg" alt="Blog Post Image 3">
+                        <div class="blog-post-thumbnail"> <!-- New wrapper for image aspect ratio -->
+                            <img src="images/frd.jpg" alt="Blog Post Image 3">
+                        </div>
                         <div class="blog-post-info">
                             <h3>Digital Skills: A Gateway to Opportunity</h3>
                             <div class="blog-post-meta">
@@ -2784,7 +3421,7 @@
 
 
         <section id="about-us-page" class="about-us-hero hidden-page">
-            <div class="container">
+            <div class="container" padding-top: 500px>
                 <h1>About YCBF Uganda</h1>
             </div>
         </section>
@@ -2846,6 +3483,9 @@
                         </div>
                     </div>
                 </div>
+                <div style="text-align: center; margin-top: 30px; padding-bottom: 30px;">
+    <a href="team.html" class="btn btn-secondary">See All</a>
+</div>
             </div>
         </section>
 
@@ -3056,51 +3696,54 @@
             </div>
         </section>
 
-        <div class="testimonials-section section-padding" style="background-color: transparent;">
-            <h2 class="section-title">Voices of Change</h2>
-            <div class="testimonials-slider">
-                <div class="testimonial-card">
-                    <p>"Before YCBF, I struggled with public speaking. Now, I lead my school's debate club with confidence!"</p>
-                    <div class="author-info">
-                        <img src="images/program_school_clubs.jpg" alt="Beneficiary Avatar" class="author-avatar">
-                        <div class="author-details">
-                            <h4>Ben E.</h4>
-                            <p>Youth Beneficiary, Kampala</p>
+        <!-- Voices of Change Section (Static Grid) -->
+        <section class="section-padding testimonials-section">
+            <div class="container">
+                <h2 class="section-title">Voices of Change</h2>
+
+                <div class="testimonials-grid"> <!-- Changed from testimonials-slider -->
+                    <!-- Testimonial Card 1 -->
+                    <div class="testimonial-card">
+                        <p>"Before YCBF, I struggled with public speaking. Now, I lead my school's debate club with confidence!"</p>
+                        <div class="author-info">
+                            <img src="images/program_school_clubs.jpg" alt="Beneficiary Avatar" class="author-avatar">
+                            <div class="author-details">
+                                <h4>Ben E.</h4>
+                                <p>Youth Beneficiary, Kampala</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"The health campaigns taught me so much. I now advocate for proper hygiene in my village."</p>
-                    <div class="author-info">
-                        <img src="images/rtr.jpg" alt="Beneficiary Avatar" class="author-avatar">
-                        <div class="author-details">
-                            <h4>Fiona I.</h4>
-                            <p>Community Youth</p>
+                    <!-- Testimonial Card 2 -->
+                    <div class="testimonial-card">
+                        <p>"The health campaigns taught me so much. I now advocate for proper hygiene in my village."</p>
+                        <div class="author-info">
+                            <img src="images/rtr.jpg" alt="Beneficiary Avatar" class="author-avatar">
+                            <div class="author-details">
+                                <h4>Fiona I.</h4>
+                                <p>Community Youth</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"YCBF's holistic approach ensures that youth are not just educated, but truly empowered for life."</p>
-                    <div class="author-info">
-                        <img src="images/pink.jpg" alt="Beneficiary Avatar" class="author-avatar">
-                        <div class="author-details">
-                            <h4>Justice M.</h4>
-                            <p>Community Leader</p>
+                    <!-- Testimonial Card 3 -->
+                    <div class="testimonial-card">
+                        <p>"YCBF's holistic approach ensures that youth are not just educated, but truly empowered for life."</p>
+                        <div class="author-info">
+                            <img src="images/pink.jpg" alt="Beneficiary Avatar" class="author-avatar">
+                            <div class="author-details">
+                                <h4>Justice M.</h4>
+                                <p>Community Leader</p>
+                            </div>
                         </div>
                     </div>
+                    <!-- Removed the "See More" card as it will be a button below -->
+                    <!-- If you want more than 3 cards, they will wrap to the next row automatically -->
                 </div>
-                <div class="testimonial-card see-more-card">
-                    <div class="see-more-content">
-                        <h3>Hear More Inspiring Stories!</h3>
-                        <p>Discover how YCBF Uganda transforms lives across the nation.</p>
-                        <a href="mentors.html" class="btn btn-secondary">See All Voices</a>
-                    </div>
+
+                <div class="text-center" style="margin-top: 60px;">
+                    <a href="impact.html" class="btn btn-primary view-all-testimonials-btn">Read More Stories</a>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
+        </section>
 
 
 <section class="section-padding animate-on-scroll" id="sdgs">
@@ -3333,22 +3976,32 @@
                 <div class="how-donations-help-grid animate-on-scroll">
                     <div class="help-item-card">
                         <div class="icon"><i class="fas fa-book-open"></i></div>
-                        <h4>UGX 50,000 for Training Materials</h4>
+                        <h4>UGX 2,000 for Training Materials</h4>
+                        <p>Provides workbooks, pens, and other learning supplies for 1 youth in a workshop.</p>
+                    </div>
+                    <div class="help-item-card">
+                        <div class="icon"><i class="fas fa-book-open"></i></div>
+                        <h4>UGX 5,000 for Training Materials</h4>
+                        <p>Provides workbooks, pens, and other learning supplies for 3 youth in a workshop.</p>
+                    </div>
+                    <div class="help-item-card">
+                        <div class="icon"><i class="fas fa-book-open"></i></div>
+                        <h4>UGX 10,000 for Training Materials</h4>
                         <p>Provides workbooks, pens, and other learning supplies for 5 youth in a workshop.</p>
                     </div>
                     <div class="help-item-card">
                         <div class="icon"><i class="fas fa-bus"></i></div>
-                        <h4>UGX 100,000 for Transport</h4>
+                        <h4>UGX 20,000 for Transport</h4>
                         <p>Covers transport costs for youth from remote areas to attend a full day of training.</p>
                     </div>
                     <div class="help-item-card">
                         <div class="icon"><i class="fas fa-pizza-slice"></i></div>
-                        <h4>UGX 150,000 for Refreshments</h4>
+                        <h4>UGX 50,000 for Refreshments</h4>
                         <p>Ensures youth receive nutritious snacks and drinks during long training sessions.</p>
                     </div>
                     <div class="help-item-card">
                         <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                        <h4>UGX 300,000 for a Trainer</h4>
+                        <h4>UGX 100,000 for a Trainer</h4>
                         <p>Supports a professional trainer for one full-day workshop, impacting up to 50 youth.</p>
                     </div>
                 </div>
@@ -3469,246 +4122,155 @@
         </div>
     </footer>
 
-    <script>
+   <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- Hamburger Menu Toggle ---
-            const hamburgerMenu = document.querySelector('.hamburger-menu');
-            const mobileNav = document.querySelector('.mobile-nav');
-            const body = document.body;
 
-            if (hamburgerMenu && mobileNav) {
-                hamburgerMenu.addEventListener('click', function() {
-                    hamburgerMenu.classList.toggle('active');
-                    mobileNav.classList.toggle('active');
-                    body.classList.toggle('no-scroll'); // Prevent background scroll
-                });
-            }
+    // ==============================================
+    // --- Hamburger Menu Toggle ---
+    // Controls the opening and closing of the mobile navigation overlay.
+    // ==============================================
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    // Assuming your mobile navigation overlay has the ID 'mobileOverlayNav'
+    const mobileNavOverlay = document.getElementById('mobileOverlayNav');
+    const closeNavBtn = document.querySelector('#mobileOverlayNav .closebtn'); // Selector for the close button inside overlay
+    const body = document.body;
 
-            // --- Page Navigation and Content Loading (Simulated) ---
-            const mainNavLinks = document.querySelectorAll('.main-nav a, .mobile-nav a');
-            const pageContent = document.getElementById('page-content');
-            const pages = {
-                'index.html': document.getElementById('home'),
-                'about.html': document.getElementById('about-us-page'),
-                'programs.html': document.getElementById('programs-page'),
-                'impact.html': document.getElementById('impact-page'),
-                'join.html': document.getElementById('join-us-page'),
-                'blog.html': document.getElementById('blog-page'),
-                'donate.html': document.getElementById('donate-page'),
-                'contact.html': document.getElementById('contact-page')
-            };
-
-            function loadPage(pageId) {
-                // Hide all pages
-                Object.values(pages).forEach(page => {
-                    if (page) page.classList.add('hidden-page');
-                });
-
-                // Show the requested page
-                const targetPage = pages[pageId];
-                if (targetPage) {
-                    targetPage.classList.remove('hidden-page');
-                    // Reset scroll position for new page
-                    window.scrollTo(0, 0);
-
-                    // Re-run animations for the new page content
-                    initAnimations();
-                    initCountUpAnimations(); // Re-initialize counters for impact page
-                }
-
-                // Update active link in navigation
-                mainNavLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === pageId) {
-                        link.classList.add('active');
-                    }
-                });
-
-                // Close mobile nav if open
-                if (mobileNav.classList.contains('active')) {
-                    hamburgerMenu.classList.remove('active');
-                    mobileNav.classList.remove('active');
-                    body.classList.remove('no-scroll');
-                }
-            }
-
-            // Handle navigation clicks
-            mainNavLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href && href.endsWith('.html')) { // Only handle internal page links
-                        e.preventDefault();
-                        const pageName = href;
-                        loadPage(pageName);
-                        // Update URL without reloading
-                        history.pushState(null, '', pageName);
-                    } else if (href && href.startsWith('#')) {
-                        // Smooth scroll for hash links on the current page
-                        e.preventDefault();
-                        const targetId = href.substring(1);
-                        const targetElement = document.getElementById(targetId);
-                        if (targetElement) {
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 80, // Adjust for sticky header
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
-                });
-            });
-
-            // Handle back/forward browser buttons
-            window.addEventListener('popstate', function(event) {
-                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-                loadPage(currentPage);
-            });
-
-            // Initial page load based on URL
-            const initialPage = window.location.pathname.split('/').pop() || 'index.html';
-            loadPage(initialPage);
-
-            // --- Scroll-triggered Animations ---
-            const animateElements = document.querySelectorAll('.animate-on-scroll');
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1 // When 10% of the element is visible
-            };
-
-            const observer = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
-                        obs.unobserve(entry.target); // Stop observing once animated
-                    }
-                });
-            }, observerOptions);
-
-            function initAnimations() {
-                animateElements.forEach(el => {
-                    // Reset for re-animation on page change
-                    el.classList.remove('in-view');
-                    observer.unobserve(el); // Ensure it's not already observed
-                    observer.observe(el);
-                });
-            }
-            initAnimations(); // Initial call
-
-            // --- Animated Counters for Impact Page ---
-            function animateCount(element, target) {
-                let start = 0;
-                const duration = 2000; // 2 seconds
-                const increment = target / (duration / 10); // Calculate increment based on 10ms intervals
-
-                const timer = setInterval(() => {
-                    start += increment;
-                    if (start >= target) {
-                        start = target;
-                        clearInterval(timer);
-                    }
-                    element.textContent = Math.floor(start);
-                }, 10);
-            }
-
-            const countUpElements = document.querySelectorAll('.count-up');
-            const countUpObserverOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.7 // When 70% of the element is visible
-            };
-
-            const countUpObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-                        const target = parseInt(entry.target.dataset.target);
-                        animateCount(entry.target, target);
-                        entry.target.classList.add('in-view', 'counted'); // Add 'counted' class to prevent re-animation
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, countUpObserverOptions);
-
-            function initCountUpAnimations() {
-                countUpElements.forEach(el => {
-                    el.classList.remove('in-view', 'counted'); // Reset for re-animation on page change
-                    countUpObserver.unobserve(el); // Ensure it's not already observed
-                    countUpObserver.observe(el);
-                });
-            }
-
-            // Initial call for home page elements
-            if (initialPage === 'impact.html') {
-                initCountUpAnimations();
-            }
+    if (hamburgerMenu && mobileNavOverlay && closeNavBtn) {
+        // Open mobile navigation
+        hamburgerMenu.addEventListener('click', function() {
+            mobileNavOverlay.style.width = '100%'; // Make overlay visible
+            body.classList.add('no-scroll'); // Prevent background scroll
         });
 
-        
-    document.addEventListener('DOMContentLoaded', () => {
-        const countUpElements = document.querySelectorAll('.count-up');
-
-        const observerOptions = {
-            root: null, // Use the viewport as the root
-            rootMargin: '0px',
-            threshold: 0.5 // Trigger when 50% of the element is visible
-        };
-
-        const startCountAnimation = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const numberElement = entry.target;
-                    const target = parseInt(numberElement.dataset.target);
-                    const total = parseInt(numberElement.dataset.total); // Get total from data attribute
-                    const duration = 2000; // milliseconds
-                    let start = 0;
-                    const increment = target / (duration / 16); // ~60 frames per second
-
-                    const animateCount = () => {
-                        start += increment;
-                        if (start < target) {
-                            numberElement.textContent = Math.round(start).toLocaleString();
-                            requestAnimationFrame(animateCount);
-                        } else {
-                            numberElement.textContent = target.toLocaleString();
-                            // Animate progress bar and update percentage text
-                            const progressBar = numberElement.closest('.impact-stat-card').querySelector('.progress-bar');
-                            const percentageText = numberElement.closest('.impact-stat-card').querySelector('.percentage-text');
-                            const percentage = (target / total) * 100; // Calculate percentage
-                            progressBar.style.width = percentage + '%';
-                            percentageText.textContent = `${Math.round(percentage)}% of Target`;
-
-                            observer.unobserve(numberElement); // Stop observing once animated
-                        }
-                    };
-                    requestAnimationFrame(animateCount);
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(startCountAnimation, observerOptions);
-
-        countUpElements.forEach(element => {
-            observer.observe(element);
+        // Close mobile navigation
+        closeNavBtn.addEventListener('click', function() {
+            mobileNavOverlay.style.width = '0%'; // Hide overlay
+            body.classList.remove('no-scroll'); // Re-enable background scroll
         });
 
-        // Optional: Add a subtle effect for the "See All Voices" card to be more prominent when scrolled into view
-        const seeMoreCard = document.querySelector('.see-more-card');
-        if (seeMoreCard) {
-            const seeMoreObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.transform = 'scale(1.02)';
-                        entry.target.style.boxShadow = '0 12px 25px rgba(0,0,0,0.25)';
-                    } else {
-                        entry.target.style.transform = 'scale(1)';
-                        entry.target.style.boxShadow = '0 8px 20px rgba(0,0,0,0.1)';
-                    }
-                });
-            }, { threshold: 0.2 }); // Trigger when 20% visible
-            seeMoreObserver.observe(seeMoreCard);
-        }
+        // Close mobile nav when a link inside it is clicked
+        // This allows the default link behavior (page load) to happen AFTER closing the menu
+        mobileNavOverlay.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNavOverlay.style.width = '0%';
+                body.classList.remove('no-scroll');
+                // No e.preventDefault() here, so the link will navigate normally
+            });
+        });
+    }
+
+    // ==============================================
+    // --- Scroll-triggered Animations (Generic) ---
+    // Adds 'in-view' class to elements with 'animate-on-scroll' when visible.
+    // ==============================================
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    const animationObserverOptions = {
+        root: null, // relative to the viewport
+        rootMargin: '0px',
+        threshold: 0.1 // When 10% of the element is visible
+    };
+
+    const animationObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                obs.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, animationObserverOptions);
+
+    // Initial call for all elements on page load
+    animateElements.forEach(el => {
+        animationObserver.observe(el);
     });
-    
+
+
+    // ==============================================
+    // --- Impact Statistics Count-Up Animation ---
+    // Animates numbers and progress bars when the section comes into view.
+    // This runs once per page load when the section becomes visible.
+    // ==============================================
+    const impactStatsSection = document.getElementById('impact-stats');
+
+    if (impactStatsSection) {
+        const impactStatCards = impactStatsSection.querySelectorAll('.impact-stat-card');
+        let hasAnimatedImpactStats = false; // Flag to ensure animation runs only once per page load
+
+        const animateNumbersAndBars = () => {
+            impactStatCards.forEach(card => {
+                const numberElement = card.querySelector('.number.count-up');
+                const progressBar = card.querySelector('.progress-bar');
+                const percentageText = card.querySelector('.percentage-text');
+
+                if (!numberElement || !progressBar || !percentageText) {
+                    console.warn("Missing elements in impact stat card, skipping animation:", card);
+                    return;
+                }
+
+                const target = parseInt(numberElement.dataset.target);
+                const total = parseInt(numberElement.dataset.total);
+                const barPercentage = parseInt(progressBar.dataset.percentage);
+                const duration = 2000; // 2 seconds for animation
+                let startTime = null;
+
+                // Animate the number
+                const animateCount = (currentTime) => {
+                    if (!startTime) startTime = currentTime;
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    const currentValue = Math.floor(progress * target);
+                    numberElement.textContent = currentValue.toLocaleString(); // Format with commas
+
+                    // Update percentage text during count-up
+                    const currentCalculatedPercentage = Math.floor((currentValue / total) * 100);
+                    percentageText.textContent = `${currentCalculatedPercentage}% of Target`;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animateCount);
+                    } else {
+                        // Ensure final value is exact target
+                        numberElement.textContent = target.toLocaleString();
+                        // Ensure final percentage is exact data-percentage
+                        percentageText.textContent = `${barPercentage}% of Target`;
+                    }
+                };
+                requestAnimationFrame(animateCount);
+
+                // Animate the progress bar
+                progressBar.style.width = `${barPercentage}%`; // Trigger CSS transition
+            });
+        };
+
+        // Use Intersection Observer to trigger animation when section is in view
+        const impactStatsObserverOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5 // Trigger when 50% of the section is visible
+        };
+
+        const impactStatsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimatedImpactStats) {
+                    animateNumbersAndBars(); // Call the combined animation function
+                    hasAnimatedImpactStats = true; // Set flag to true after animation
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, impactStatsObserverOptions);
+
+        impactStatsObserver.observe(impactStatsSection);
+    }
+
+    // ==============================================
+    // --- Footer Current Year ---
+    // Dynamically updates the year in the footer.
+    // ==============================================
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
+
+}); // End of DOMContentLoaded
 </script>
-    </script>
+    
 </body>
 </html>
